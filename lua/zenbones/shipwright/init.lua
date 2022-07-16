@@ -88,6 +88,7 @@ M.run = function()
 		"foot",
 		"lualine",
 		"lightline",
+		"vscode",
 	}
 	local colorschemes = vim.fn.json_decode(vim.fn.readfile "zenbones.json")
 	for _, colorscheme in ipairs(colorschemes) do
