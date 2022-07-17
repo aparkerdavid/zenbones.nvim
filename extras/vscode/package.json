@@ -1,0 +1,19 @@
+{
+    "name": "zenbones",
+    "displayName": "Zenbones Themes",
+    "description": "A collection of colorschemes designed to highlight code using contrasts and font variations",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.69.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "contributes": {
+        "themes": [{
+            "label": "Zenbones Dark Stark",
+            "uiTheme": "vs",
+            "path": "./themes/zenbones_dark_stark.json"
+        }]
+    }
+}
