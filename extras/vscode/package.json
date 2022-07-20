@@ -11,9 +11,15 @@
     ],
     "contributes": {
         "themes": [{
-            "label": "Zenbones Dark Stark",
-            "uiTheme": "vs",
-            "path": "./themes/zenbones_dark_stark.json"
-        }]
+                "label": "Zenbones Light Default",
+                "uiTheme": "vs-dark",
+                "path": "./themes/zenbones_light_default.json"
+            },
+            {
+                "label": "Zenbones Dark Default",
+                "uiTheme": "vs",
+                "path": "./themes/zenbones_dark_default.json"
+            }
+        ]
     }
 }
