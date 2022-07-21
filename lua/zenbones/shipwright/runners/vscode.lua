@@ -33,10 +33,20 @@ local function to_table(colorscheme)
 			["activityBar.foreground"] = specs.StatusLine.fg,
 			["activityBar.background"] = specs.StatusLine.bg,
 			["activityBarBadge.background"] = specs.DiagnosticHint.fg,
+			["activityBarBadge.foreground"] = specs.StatusLineNC.fg,
 
 			-- Button control: https://code.visualstudio.com/api/references/theme-color#button-control
-			["button.foreground"] = specs.StatusLine.fg,
-			["button.background"] = specs.StatusLine.bg,
+			["button.background"] = specs.StatusLine.bg, -- Button background color.
+			["button.foreground"] = specs.StatusLine.fg, -- Button foreground color.
+			-- ["button.border"] = , -- Button border color.
+			-- ["button.hoverBackground"] = , -- Button background color when hovering.
+			["button.secondaryForeground"] = specs.StatusLineNC.fg, -- Secondary button foreground color.
+			["button.secondaryBackground"] = specs.StatusLineNC.bg, -- Secondary button background color.
+			-- ["button.secondaryHoverBackground"] = , -- Secondary button background color when hovering.
+			["checkbox.background"] = specs.StatusLine.bg, -- Background color of checkbox widget.
+			["checkbox.foreground"] = specs.StatusLine.fg, -- Foreground color of checkbox widget.
+			-- ["checkbox.border"] = , -- Border color of checkbox widget.
+
 
 			-- Editor Groups & Tabs: https://code.visualstudio.com/api/references/theme-color#editor-groups-tabs
 			["editorGroupHeader.tabsBackground"] = specs.StatusLineNC.bg,
@@ -67,6 +77,11 @@ local function to_table(colorscheme)
 			["editorLineNumber.activeForeground"] = specs.CursorLineNr.fg,
 			["editorLineNumber.foreground"] = specs.LineNr.fg,
 			["editorRuler.foreground"] = specs.VertSplit.fg .. "a0",
+			["editorHoverWidget.foreground"] = specs.Normal.fg, -- Foreground color of the editor hover.
+			["editorHoverWidget.background"] = specs.Pmenu.bg, -- Background color of the editor hover.
+			["editorHoverWidget.border"] = specs.PmenuSel.bg, -- Border color of the editor hover.
+			-- ["editorHoverWidget.highlightForeground"] = specs.PmenuSel.bg, -- Foreground color of the active item in the parameter hint.
+			-- ["editorHoverWidget.statusBarBackground"] = , -- Background color of the editor hover status bar.
 
 			-- Input control: https://code.visualstudio.com/api/references/theme-color#input-control
 			["input.background"] = specs.Normal.bg, -- Input box background.
@@ -82,6 +97,55 @@ local function to_table(colorscheme)
 			["sideBar.foreground"] = specs.StatusLineNC.fg, -- Side Bar foreground color. The Side Bar is the container for views like Explorer and Search.
 			["sideBarSectionHeader.background"] = specs.StatusLine.bg, -- Side Bar section header background color.
 			["sideBarSectionHeader.foreground"] = specs.StatusLine.fg, -- Side Bar section header foreground color.
+
+			-- Quick picker colors: https://code.visualstudio.com/api/references/theme-color#quick-picker-colors
+			-- ["pickerGroup.border"] = specs.Pmenu.bg, -- Quick picker (Quick Open) color for grouping borders.
+			-- ["pickerGroup.foreground"] = , -- Quick picker (Quick Open) color for grouping labels.
+			["quickInput.background"] = specs.Pmenu.bg, -- Quick input background color. The quick input widget is the container for views like the color theme picker.
+			["quickInput.foreground"] = specs.Normal.fg, -- Quick input foreground color. The quick input widget is the container for views like the color theme picker.
+			["quickInputList.focusBackground"] = specs.PmenuSel.bg, -- Quick picker background color for the focused item.
+			["quickInputList.focusForeground"] = specs.Normal.fg, -- Quick picker foreground color for the focused item.
+			-- ["quickInputList.focusIconForeground"] = , -- Quick picker icon foreground color for the focused item.
+			-- ["quickInputTitle.background"] = specs.Pmenu.bg, -- Quick picker title background color. The quick picker widget is the container for pickers like the Command Palette.
+
+			-- Lists and trees
+			["list.activeSelectionBackground"] = specs.PmenuSel.bg, -- List/Tree background color for the selected item when the list/tree is active.
+			["list.activeSelectionForeground"] = specs.Normal.fg, -- List/Tree foreground color for the selected item when the list/tree is active.
+			["list.hoverBackground"] = specs.PmenuSel.bg .. "50", -- List/Tree background when hovering over items using the mouse.
+			["list.inactiveSelectionBackground"] = specs.PmenuSel.bg .. "a0", -- List/Tree background color for the selected item when the list/tree is inactive.
+
+			-- Text colors: https://code.visualstudio.com/api/references/theme-color#text-colors
+			-- ["textBlockQuote.background"] = , -- Background color for block quotes in text.
+			-- ["textBlockQuote.border"] = , -- Border color for block quotes in text.
+			-- ["textCodeBlock.background"] = , -- Background color for code blocks in text.
+			["textLink.activeForeground"] = specs.DiagnosticHint.fg .. "d0", -- Foreground color for links in text when clicked on and on mouse hover.
+			["textLink.foreground"] = specs.DiagnosticHint.fg, -- Foreground color for links in text.
+			-- ["textPreformat.foreground"] = , -- Foreground color for preformatted text segments.
+			-- ["textSeparator.foreground"] = , -- Color for text separators.
+
+			-- Badge: https://code.visualstudio.com/api/references/theme-color#badge
+			["badge.foreground"] = specs.StatusLineNC.bg, -- Badge foreground color.
+			["badge.background"] = specs.DiagnosticHint.fg, -- Badge background color.
+
+			-- Keybinding label colors: https://code.visualstudio.com/api/references/theme-color#keybinding-label-colors
+			["keybindingLabel.background"] = specs.StatusLineNC.bg, -- Keybinding label background color. The keybinding label is used to represent a keyboard shortcut.
+			["keybindingLabel.foreground"] = specs.StatusLineNC.fg, -- Keybinding label foreground color. The keybinding label is used to represent a keyboard shortcut.
+			["keybindingLabel.border"] = specs.Normal.bg, -- Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.
+			["keybindingLabel.bottomBorder"] = specs.Normal.bg, -- Keybinding label border bottom color. The keybinding label is used to represent a keyboard shortcut.
+
+			-- Notification colors: https://code.visualstudio.com/api/references/theme-color#notification-colors
+			-- ["notificationCenter.border"] = , -- Notification Center border color.
+			["notificationCenterHeader.foreground"] = specs.StatusLineNC.fg, -- Notification Center header foreground color.
+			["notificationCenterHeader.background"] = specs.StatusLineNC.bg, -- Notification Center header background color.
+			-- ["notificationToast.border"] = , -- Notification toast border color.
+			["notifications.foreground"] = specs.Normal.fg, -- Notification foreground color.
+			["notifications.background"] = specs.Normal.bg, -- Notification background color.
+			-- ["notifications.border"] = , -- Notification border color separating from other notifications in the Notification Center.
+			["notificationLink.foreground"] = specs.DiagnosticHint.fg, -- Notification links foreground color.
+			["notificationsErrorIcon.foreground"] = specs.DiagnosticError.fg, -- The color used for the notification error icon.
+			["notificationsWarningIcon.foreground"] = specs.DiagnosticWarn.fg, -- The color used for the notification warning icon.
+			["notificationsInfoIcon.foreground"] = specs.DiagnosticInfo.fg, -- The color used for the notification info icon.
+
 
 			-- -- ["badge.background"] = specs.DiagnosticInfo.fg, -- todo
 			-- ["dropdown.background"] = specs.Normal.bg, -- todo
