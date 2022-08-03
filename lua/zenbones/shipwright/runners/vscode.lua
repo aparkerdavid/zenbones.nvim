@@ -33,7 +33,7 @@ local function to_table(colorscheme)
 			["activityBar.foreground"] = specs.StatusLine.fg,
 			["activityBar.background"] = specs.StatusLine.bg,
 			["activityBarBadge.background"] = specs.DiagnosticHint.fg,
-			["activityBarBadge.foreground"] = specs.StatusLineNC.fg,
+			["activityBarBadge.foreground"] = specs.StatusLineNC.bg,
 
 			-- Button control: https://code.visualstudio.com/api/references/theme-color#button-control
 			["button.background"] = specs.StatusLine.bg, -- Button background color.
@@ -56,6 +56,20 @@ local function to_table(colorscheme)
 			["tab.inactiveBackground"] = specs.StatusLine.bg,
 			["tab.border"] = specs.StatusLineNC.bg,
 
+			-- Panel colors: https://code.visualstudio.com/api/references/theme-color#panel-colors
+			["panel.background"] = specs.Normal.bg, -- Panel background color.
+			["panel.border"] = specs.VertSplit.fg .. "a0", -- Panel border color to separate the panel from the editor.
+			-- ["panel.dropBorder"] = , -- Drag and drop feedback color for the panel titles. Panels are shown below the editor area and contain views like output and integrated terminal.
+			["panelTitle.activeBorder"] = specs.VertSplit.fg .. "a0", -- Border color for the active panel title.
+			["panelTitle.activeForeground"] = specs.Normal.fg, -- Title color for the active panel.
+			["panelTitle.inactiveForeground"] = specs.StatusLine.fg .. "a0", -- Title color for the inactive panel.
+			-- ["panelInput.border"] = , -- Input box border for inputs in the panel.
+			-- ["panelSection.border"] = , -- Panel section border color used when multiple views are stacked horizontally in the panel. Panels are shown below the editor area and contain views like output and integrated terminal.
+			-- ["panelSection.dropBackground"] = , -- Drag and drop feedback color for the panel sections. The color should have transparency so that the panel sections can still shine through. Panels are shown below the editor area and contain views like output and integrated terminal.
+			-- ["panelSectionHeader.background"] = , -- Panel section header background color. Panels are shown below the editor area and contain views like output and integrated terminal.
+			-- ["panelSectionHeader.foreground"] = , -- Panel section header foreground color. Panels are shown below the editor area and contain views like output and integrated terminal.
+			-- ["panelSectionHeader.border"] = , -- Panel section header border color used when multiple views are stacked vertically in the panel. Panels are shown below the editor area and contain views like output and integrated terminal.
+
 			-- Status Bar colors: https://code.visualstudio.com/api/references/theme-color#status-bar-colors
 			["statusBar.foreground"] = specs.StatusLineNC.fg,
 			["statusBar.background"] = specs.StatusLineNC.bg,
@@ -65,23 +79,112 @@ local function to_table(colorscheme)
 			["statusBarItem.remoteBackground"] = specs.StatusLine.bg,
 
 			-- Editor colors: https://code.visualstudio.com/api/references/theme-color#editor-colors
-			["editor.foreground"] = specs.Normal.fg,
-			["editor.background"] = specs.Normal.bg,
-			["editor.findMatchBackground"] = specs.Search.bg,
-			["editor.findMatchHighlightBackground"] = specs.CurSearch.bg .. "c0",
+			["editor.foreground"] = specs.Normal.fg, -- Editor background color.
+			["editor.background"] = specs.Normal.bg, -- Editor default foreground color.
 			["editor.lineHighlightBackground"] = specs.CursorLine.bg,
 			["editor.selectionBackground"] = specs.Visual.bg,
-			["editorCursor.foreground"] = specs.Cursor.bg,
+			-- ["editorCursor.background"] = , -- The background color of the editor cursor. Allows customizing the color of a character overlapped by a block cursor.
+			["editorCursor.foreground"] = specs.Cursor.bg, -- Color of the editor cursor.
 			["editorIndentGuide.activeBackground"] = specs.VertSplit.fg .. "a0",
 			["editorIndentGuide.background"] = specs.VertSplit.fg .. "50",
-			["editorLineNumber.activeForeground"] = specs.CursorLineNr.fg,
-			["editorLineNumber.foreground"] = specs.LineNr.fg,
+			["editorLineNumber.activeForeground"] = specs.CursorLineNr.fg, -- Color of editor line numbers.
+			["editorLineNumber.foreground"] = specs.LineNr.fg, -- Color of the active editor line number.
 			["editorRuler.foreground"] = specs.VertSplit.fg .. "a0",
+			-- Find colors depend on the current find string in the Find/Replace dialog.
+			["editor.findMatchBackground"] = specs.CurSearch.bg, -- Color of the current search match.
+			["editor.findMatchHighlightBackground"] = specs.Search.bg, -- Color of the other search matches. The color must not be opaque so as not to hide underlying decorations.
+			-- ["editor.findRangeHighlightBackground"] = specs., -- Color the range limiting the search (Enable 'Find in Selection' in the find widget). The color must not be opaque so as not to hide underlying decorations.
+			-- ["editor.findMatchBorder"] = specs., -- Border color of the current search match.
+			-- ["editor.findMatchHighlightBorder"] = specs., -- Border color of the other search matches.
+			-- ["editor.findRangeHighlightBorder"] = specs., -- Border color the range limiting the search (Enable 'Find in Selection' in the find widget).
+			-- This ruler is located beneath the scroll bar on the right edge of the editor and gives an overview of the decorations in the editor.
+			-- ["editorOverviewRuler.background"] = , -- Background color of the editor overview ruler. Only used when the minimap is enabled and placed on the right side of the editor.
+			-- ["editorOverviewRuler.border"] = , -- Color of the overview ruler border.
+			["editorOverviewRuler.findMatchForeground"] = specs.Search.bg, -- Overview ruler marker color for find matches. The color must not be opaque so as not to hide underlying decorations.
+			-- ["editorOverviewRuler.rangeHighlightForeground"] = , -- Overview ruler marker color for highlighted ranges, like by the Quick Open, Symbol in File and Find features. The color must not be opaque so as not to hide underlying decorations.
+			["editorOverviewRuler.selectionHighlightForeground"] = specs.Visual.bg, -- Overview ruler marker color for selection highlights. The color must not be opaque so as not to hide underlying decorations.
+			-- ["editorOverviewRuler.wordHighlightForeground"] = , -- Overview ruler marker color for symbol highlights. The color must not be opaque so as not to hide underlying decorations.
+			-- ["editorOverviewRuler.wordHighlightStrongForeground"] = , -- Overview ruler marker color for write-access symbol highlights. The color must not be opaque so as not to hide underlying decorations.
+			["editorOverviewRuler.modifiedForeground"] = specs.DiffChange.bg, -- Overview ruler marker color for modified content.
+			["editorOverviewRuler.addedForeground"] = specs.DiffAdd.bg, -- Overview ruler marker color for added content.
+			["editorOverviewRuler.deletedForeground"] = specs.DiffDelete.bg, -- Overview ruler marker color for deleted content.
+			["editorOverviewRuler.errorForeground"] = specs.DiagnosticError.fg, -- Overview ruler marker color for errors.
+			["editorOverviewRuler.warningForeground"] = specs.DiagnosticWarn.fg, -- Overview ruler marker color for warnings.
+			["editorOverviewRuler.infoForeground"] = specs.DiagnosticInfo.fg, -- Overview ruler marker color for infos.
+			-- ["editorOverviewRuler.bracketMatchForeground"] = , -- Overview ruler marker color for matching brackets.
+			-- Errors and warnings:
+			["editorError.foreground"] = specs.DiagnosticError.fg, -- Foreground color of error squiggles in the editor.
+			-- ["editorError.border"] = , -- Border color of error boxes in the editor.
+			-- ["editorError.background"] = , -- Background color of error text in the editor. The color must not be opaque so as not to hide underlying decorations.
+			["editorWarning.foreground"] = specs.DiagnosticWarn.fg, -- Foreground color of warning squiggles in the editor.
+			-- ["editorWarning.border"] = , -- Border color of warning boxes in the editor.
+			-- ["editorWarning.background"] = , -- Background color of warning text in the editor. The color must not be opaque so as not to hide underlying decorations.
+			["editorInfo.foreground"] = specs.DiagnosticInfo.fg, -- Foreground color of info squiggles in the editor.
+			-- ["editorInfo.border"] = , -- Border color of info boxes in the editor.
+			-- ["editorInfo.background"] = , -- Background color of info text in the editor. The color must not be opaque so as not to hide underlying decorations.
+			["editorHint.foreground"] = specs.DiagnosticHint.fg, -- Foreground color of hints in the editor.
+			-- ["editorHint.border"] = , -- Border color of hint boxes in the editor.
+			["problemsErrorIcon.foreground"] = specs.DiagnosticError.fg, -- The color used for the problems error icon.
+			["problemsWarningIcon.foreground"] = specs.DiagnosticWarn.fg, -- The color used for the problems warning icon.
+			["problemsInfoIcon.foreground"] = specs.DiagnosticInfo.fg, -- The color used for the problems info icon.
+			-- The gutter contains the glyph margins and the line numbers:
+			-- ["editorGutter.background"] = , -- Background color of the editor gutter. The gutter contains the glyph margins and the line numbers.
+			["editorGutter.modifiedBackground"] = specs.DiffChange.bg, -- Editor gutter background color for lines that are modified.
+			["editorGutter.addedBackground"] = specs.DiffAdd.bg, -- Editor gutter background color for lines that are added.
+			["editorGutter.deletedBackground"] = specs.DiffDelete.bg, -- Editor gutter background color for lines that are deleted.
+			-- ["editorGutter.commentRangeForeground"] = , -- Editor gutter decoration color for commenting ranges.
+			-- ["editorGutter.foldingControlForeground"] = , -- Color of the folding control in the editor gutter.
+
+
+			-- Diff editor colors: https://code.visualstudio.com/api/references/theme-color#diff-editor-colors
+			["diffEditor.insertedTextBackground"] = specs.DiffAdd.fg, -- Background color for text that got inserted. The color must not be opaque so as not to hide underlying decorations.
+			-- ["diffEditor.insertedTextBorder"] = specs., -- Outline color for the text that got inserted.
+			["diffEditor.removedTextBackground"] = specs.DiffDelete.fg, -- Background color for text that got removed. The color must not be opaque so as not to hide underlying decorations.
+			-- ["diffEditor.removedTextBorder"] = specs., -- Outline color for text that got removed.
+			-- ["diffEditor.border"] = specs., -- Border color between the two text editors.
+			-- ["diffEditor.diagonalFill"] = specs., -- Color of the diff editor's diagonal fill. The diagonal fill is used in side-by-side diff views.
+			-- ["diffEditor.insertedLineBackground"] = specs., -- Background color for lines that got inserted. The color must not be opaque so as not to hide underlying decorations.
+			-- ["diffEditor.removedLineBackground"] = specs., -- Background color for lines that got removed. The color must not be opaque so as not to hide underlying decorations.
+			-- ["diffEditorGutter.insertedLineBackground"] = specs., -- Background color for the margin where lines got inserted.
+			-- ["diffEditorGutter.removedLineBackground"] = specs., -- Background color for the margin where lines got removed.
+			-- ["diffEditorOverview.insertedForeground"] = specs., -- Diff overview ruler foreground for inserted content.
+			-- ["diffEditorOverview.removedForeground"] = specs., -- Diff overview ruler foreground for removed content.
+
+			-- Editor widget colors: https://code.visualstudio.com/api/references/theme-color#editor-widget-colors
+			["editorWidget.foreground"] = specs.StatusLineNC.fg, -- Foreground color of editor widgets, such as find/replace.
+			["editorWidget.background"] = specs.StatusLineNC.bg, -- Background color of editor widgets, such as Find/Replace.
+			["editorWidget.border"] = specs.StatusLine.bg, -- Border color of the editor widget unless the widget does not contain a border or defines its own border color.
+			-- ["editorWidget.resizeBorder"] = specs., -- Border color of the resize bar of editor widgets. The color is only used if the widget chooses to have a resize border and if the color is not overridden by a widget.
+			-- ["editorSuggestWidget.background"] = specs., -- Background color of the suggestion widget.
+			-- ["editorSuggestWidget.border"] = specs., -- Border color of the suggestion widget.
+			-- ["editorSuggestWidget.foreground"] = specs., -- Foreground color of the suggestion widget.
+			-- ["editorSuggestWidget.focusHighlightForeground"] = specs., -- Color of the match highlights in the suggest widget when an item is focused.
+			-- ["editorSuggestWidget.highlightForeground"] = specs., -- Color of the match highlights in the suggestion widget.
+			-- ["editorSuggestWidget.selectedBackground"] = specs., -- Background color of the selected entry in the suggestion widget.
+			-- ["editorSuggestWidget.selectedForeground"] = specs., -- Foreground color of the selected entry in the suggest widget.
+			-- ["editorSuggestWidget.selectedIconForeground"] = specs., -- Icon foreground color of the selected entry in the suggest widget.
+			-- ["editorSuggestWidgetStatus.foreground"] = specs., -- Foreground color of the suggest widget status.
 			["editorHoverWidget.foreground"] = specs.Normal.fg, -- Foreground color of the editor hover.
 			["editorHoverWidget.background"] = specs.Pmenu.bg, -- Background color of the editor hover.
 			["editorHoverWidget.border"] = specs.PmenuSel.bg, -- Border color of the editor hover.
 			-- ["editorHoverWidget.highlightForeground"] = specs.PmenuSel.bg, -- Foreground color of the active item in the parameter hint.
 			-- ["editorHoverWidget.statusBarBackground"] = , -- Background color of the editor hover status bar.
+			-- ["editorGhostText.border"] = specs., -- Border color of the ghost text shown by inline completion providers and the suggest preview.
+			-- ["editorGhostText.background"] = specs., -- Background color of the ghost text in the editor.
+			-- ["editorGhostText.foreground"] = specs., -- Foreground color of the ghost text shown by inline completion providers and the suggest preview.
+
+			-- The Debug Exception widget is a peek view that shows in the editor when debug stops at an exception.
+			-- ["debugExceptionWidget.background"] = specs., -- Exception widget background color.
+			-- ["debugExceptionWidget.border"] = specs., -- Exception widget border color.
+
+			-- The editor marker view shows when navigating to errors and warnings in the editor (Go to Next Error or Warning command).
+			-- ["editorMarkerNavigation.background"] = specs., -- Editor marker navigation widget background.
+			-- ["editorMarkerNavigationError.background"] = specs., -- Editor marker navigation widget error color.
+			-- ["editorMarkerNavigationWarning.background"] = specs., -- Editor marker navigation widget warning color.
+			-- ["editorMarkerNavigationInfo.background"] = specs., -- Editor marker navigation widget info color.
+			-- ["editorMarkerNavigationError.headerBackground"] = specs., -- Editor marker navigation widget error heading background.
+			-- ["editorMarkerNavigationWarning.headerBackground"] = specs., -- Editor marker navigation widget warning heading background.
+			-- ["editorMarkerNavigationInfo.headerBackground"] = specs., -- Editor marker navigation widget info heading background.
 
 			-- Input control: https://code.visualstudio.com/api/references/theme-color#input-control
 			["input.background"] = specs.Normal.bg, -- Input box background.
@@ -98,21 +201,67 @@ local function to_table(colorscheme)
 			["sideBarSectionHeader.background"] = specs.StatusLine.bg, -- Side Bar section header background color.
 			["sideBarSectionHeader.foreground"] = specs.StatusLine.fg, -- Side Bar section header foreground color.
 
+			-- Minimap: https://code.visualstudio.com/api/references/theme-color#minimap
+			["minimap.findMatchHighlight"] = specs.Search.bg, -- Highlight color for matches from search within files.
+			["minimap.selectionHighlight"] = specs.Visual.bg, -- Highlight color for the editor selection.
+			["minimap.errorHighlight"] = specs.ErrorMsg.fg, -- Highlight color for errors within the editor.
+			["minimap.warningHighlight"] = specs.DiagnosticWarn.fg, -- Highlight color for warnings within the editor.
+			-- ["minimap.background"] = , -- Minimap background color.
+			-- ["minimap.selectionOccurrenceHighlight"] = specs.CursorLine.bg, -- Minimap marker color for repeating editor selections.
+			-- ["minimap.foregroundOpacity"] = , -- Opacity of foreground elements rendered in the minimap. For example, "#000000c0" will render the elements with 75% opacity.
+			-- ["minimapSlider.background"] = , -- Minimap slider background color.
+			-- ["minimapSlider.hoverBackground"] = , -- Minimap slider background color when hovering.
+			-- ["minimapSlider.activeBackground"] = , -- Minimap slider background color when clicked on.
+			["minimapGutter.addedBackground"] = specs.DiffAdd.bg, -- Minimap gutter color for added content.
+			["minimapGutter.modifiedBackground"] = specs.DiffChange.bg, -- Minimap gutter color for modified content.
+			["minimapGutter.deletedBackground"] = specs.DiffDelete.bg, -- Minimap gutter color for deleted content.
+
 			-- Quick picker colors: https://code.visualstudio.com/api/references/theme-color#quick-picker-colors
-			-- ["pickerGroup.border"] = specs.Pmenu.bg, -- Quick picker (Quick Open) color for grouping borders.
-			-- ["pickerGroup.foreground"] = , -- Quick picker (Quick Open) color for grouping labels.
-			["quickInput.background"] = specs.Pmenu.bg, -- Quick input background color. The quick input widget is the container for views like the color theme picker.
-			["quickInput.foreground"] = specs.Normal.fg, -- Quick input foreground color. The quick input widget is the container for views like the color theme picker.
-			["quickInputList.focusBackground"] = specs.PmenuSel.bg, -- Quick picker background color for the focused item.
-			["quickInputList.focusForeground"] = specs.Normal.fg, -- Quick picker foreground color for the focused item.
-			-- ["quickInputList.focusIconForeground"] = , -- Quick picker icon foreground color for the focused item.
-			-- ["quickInputTitle.background"] = specs.Pmenu.bg, -- Quick picker title background color. The quick picker widget is the container for pickers like the Command Palette.
+			["pickerGroup.border"] = specs.VertSplit.fg .. "a0", -- Quick picker (Quick Open) color for grouping borders.
+			["pickerGroup.foreground"] = specs.StatusLineNC.fg, -- Quick picker (Quick Open) color for grouping labels.
+			["quickInput.background"] = specs.StatusLineNC.bg, -- Quick input background color. The quick input widget is the container for views like the color theme picker.
+			["quickInput.foreground"] = specs.StatusLineNC.fg, -- Quick input foreground color. The quick input widget is the container for views like the color theme picker.
+			["quickInputList.focusBackground"] = specs.StatusLine.bg, -- Quick picker background color for the focused item.
+			["quickInputList.focusForeground"] = specs.StatusLine.fg, -- Quick picker foreground color for the focused item.
+			-- ["quickInputList.focusIconForeground"] = "#FF00000", -- Quick picker icon foreground color for the focused item.
+			-- ["quickInputTitle.background"] = "#FF00000", -- Quick picker title background color. The quick picker widget is the container for pickers like the Command Palette.
+
+			-- Keybinding label colors: https://code.visualstudio.com/api/references/theme-color#keybinding-label-colors
+			["keybindingLabel.background"] = specs.StatusLine.bg, -- Keybinding label background color. The keybinding label is used to represent a keyboard shortcut.
+			["keybindingLabel.foreground"] = specs.StatusLine.fg, -- Keybinding label foreground color. The keybinding label is used to represent a keyboard shortcut.
+			["keybindingLabel.border"] = specs.Pmenu.bg, -- Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.
+			["keybindingLabel.bottomBorder"] = specs.PmenuSel.bg, -- Keybinding label border bottom color. The keybinding label is used to represent a keyboard shortcut.
 
 			-- Lists and trees
 			["list.activeSelectionBackground"] = specs.PmenuSel.bg, -- List/Tree background color for the selected item when the list/tree is active.
 			["list.activeSelectionForeground"] = specs.Normal.fg, -- List/Tree foreground color for the selected item when the list/tree is active.
+			-- ["list.activeSelectionIconForeground"] = , -- List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
+			-- ["list.dropBackground"] = , -- List/Tree drag and drop background when moving items around using the mouse.
+			-- ["list.focusBackground"] = , -- List/Tree background color for the focused item when the list/tree is active.
+			-- ["list.focusForeground"] = , -- List/Tree foreground color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
+			-- ["list.focusHighlightForeground"] = , -- List/Tree foreground color of the match highlights on actively focused items when searching inside the list/tree.
+			-- ["list.focusOutline"] = , -- List/Tree outline color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
+			-- ["list.focusAndSelectionOutline"] = , -- List/Tree outline color for the focused item when the list/tree is active and selected. An active list/tree has keyboard focus, an inactive does not.
+			["list.highlightForeground"] = specs.DiagnosticHint.fg, -- List/Tree foreground color of the match highlights when searching inside the list/tree.
 			["list.hoverBackground"] = specs.PmenuSel.bg .. "50", -- List/Tree background when hovering over items using the mouse.
+			-- ["list.hoverForeground"] = , -- List/Tree foreground when hovering over items using the mouse.
 			["list.inactiveSelectionBackground"] = specs.PmenuSel.bg .. "a0", -- List/Tree background color for the selected item when the list/tree is inactive.
+			-- ["list.inactiveSelectionForeground"] = , -- List/Tree foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
+			-- ["list.inactiveSelectionIconForeground"] = , -- List/Tree icon foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
+			-- ["list.inactiveFocusBackground"] = , -- List background color for the focused item when the list is inactive. An active list has keyboard focus, an inactive does not. Currently only supported in lists.
+			-- ["list.inactiveFocusOutline"] = , -- List/Tree outline color for the focused item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
+			-- ["list.invalidItemForeground"] = , -- List/Tree foreground color for invalid items, for example an unresolved root in explorer.
+			-- ["list.errorForeground"] = , -- Foreground color of list items containing errors.
+			-- ["list.warningForeground"] = , -- Foreground color of list items containing warnings.
+			-- ["listFilterWidget.background"] = , -- List/Tree Filter background color of typed text when searching inside the list/tree.
+			-- ["listFilterWidget.outline"] = , -- List/Tree Filter Widget's outline color of typed text when searching inside the list/tree.
+			-- ["listFilterWidget.noMatchesOutline"] = , -- List/Tree Filter Widget's outline color when no match is found of typed text when searching inside the list/tree.
+			-- ["list.filterMatchBackground"] = , -- Background color of the filtered matches in lists and trees.
+			-- ["list.filterMatchBorder"] = , -- Border color of the filtered matches in lists and trees.
+			-- ["list.deemphasizedForeground"] = , -- List/Tree foreground color for items that are deemphasized.
+			-- ["tree.indentGuidesStroke"] = , -- Tree Widget's stroke color for indent guides.
+			-- ["tree.tableColumnsBorder"] = , -- Tree stroke color for the indentation guides.
+			-- ["tree.tableOddRowsBackground"] = , -- Background color for odd table rows.
 
 			-- Text colors: https://code.visualstudio.com/api/references/theme-color#text-colors
 			-- ["textBlockQuote.background"] = , -- Background color for block quotes in text.
@@ -126,12 +275,6 @@ local function to_table(colorscheme)
 			-- Badge: https://code.visualstudio.com/api/references/theme-color#badge
 			["badge.foreground"] = specs.StatusLineNC.bg, -- Badge foreground color.
 			["badge.background"] = specs.DiagnosticHint.fg, -- Badge background color.
-
-			-- Keybinding label colors: https://code.visualstudio.com/api/references/theme-color#keybinding-label-colors
-			["keybindingLabel.background"] = specs.StatusLineNC.bg, -- Keybinding label background color. The keybinding label is used to represent a keyboard shortcut.
-			["keybindingLabel.foreground"] = specs.StatusLineNC.fg, -- Keybinding label foreground color. The keybinding label is used to represent a keyboard shortcut.
-			["keybindingLabel.border"] = specs.Normal.bg, -- Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.
-			["keybindingLabel.bottomBorder"] = specs.Normal.bg, -- Keybinding label border bottom color. The keybinding label is used to represent a keyboard shortcut.
 
 			-- Notification colors: https://code.visualstudio.com/api/references/theme-color#notification-colors
 			-- ["notificationCenter.border"] = , -- Notification Center border color.
@@ -198,8 +341,8 @@ local function to_table(colorscheme)
 			["terminal.ansiRed"] = term.red, -- 'Red' ANSI color in the terminal.
 			["terminal.ansiWhite"] = term.white, -- 'White' ANSI color in the terminal.
 			["terminal.ansiYellow"] = term.yellow, -- 'Yellow' ANSI color in the terminal.
-			["terminalCursor.background"] = specs.TermCursor.bg, -- The background color of the terminal cursor. Allows customizing the color of a character overlapped by a block cursor.
-			["terminalCursor.foreground"] = specs.TermCursor.fg, -- The foreground color of the terminal cursor.
+			["terminalCursor.background"] = specs.TermCursor.fg, -- The background color of the terminal cursor. Allows customizing the color of a character overlapped by a block cursor.
+			["terminalCursor.foreground"] = specs.TermCursor.bg, -- The foreground color of the terminal cursor.
 
 		},
 		["tokenColors"] = {
