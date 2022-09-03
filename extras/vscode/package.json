@@ -1,25 +1,301 @@
 {
-    "name": "zenbones",
-    "displayName": "Zenbones Themes",
-    "description": "A collection of colorschemes designed to highlight code using contrasts and font variations",
-    "version": "0.0.1",
-    "engines": {
-        "vscode": "^1.69.0"
-    },
-    "categories": [
-        "Themes"
-    ],
-    "contributes": {
-        "themes": [{
-                "label": "Zenbones Light Default",
-                "uiTheme": "vs-dark",
-                "path": "./themes/zenbones_light_default.json"
-            },
-            {
-                "label": "Zenbones Dark Default",
-                "uiTheme": "vs",
-                "path": "./themes/zenbones_dark_default.json"
-            }
-        ]
-    }
+  "name": "zenbones",
+  "displayName": "Zenbones Themes",
+  "description": "A collection of colorschemes designed to highlight code using contrasts and font variations",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.69.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Zenbones Duckbones Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/duckbones_default.json"
+      },
+      {
+        "label": "Zenbones Duckbones Dark Stark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/duckbones_stark.json"
+      },
+      {
+        "label": "Zenbones Duckbones Dark Warm",
+        "uiTheme": "vs-dark",
+        "path": "./themes/duckbones_warm.json"
+      },
+      {
+        "label": "Zenbones Forestbones Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/forestbones_dark_default.json"
+      },
+      {
+        "label": "Zenbones Forestbones Dark Stark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/forestbones_dark_stark.json"
+      },
+      {
+        "label": "Zenbones Forestbones Dark Warm",
+        "uiTheme": "vs-dark",
+        "path": "./themes/forestbones_dark_warm.json"
+      },
+      {
+        "label": "Zenbones Forestbones Light Bright",
+        "uiTheme": "vs",
+        "path": "./themes/forestbones_light_bright.json"
+      },
+      {
+        "label": "Zenbones Forestbones Light",
+        "uiTheme": "vs",
+        "path": "./themes/forestbones_light_default.json"
+      },
+      {
+        "label": "Zenbones Forestbones Light Dim",
+        "uiTheme": "vs",
+        "path": "./themes/forestbones_light_dim.json"
+      },
+      {
+        "label": "Zenbones Kanagawabones Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/kanagawabones_default.json"
+      },
+      {
+        "label": "Zenbones Kanagawabones Dark Stark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/kanagawabones_stark.json"
+      },
+      {
+        "label": "Zenbones Kanagawabones Dark Warm",
+        "uiTheme": "vs-dark",
+        "path": "./themes/kanagawabones_warm.json"
+      },
+      {
+        "label": "Zenbones Neobones Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/neobones_dark_default.json"
+      },
+      {
+        "label": "Zenbones Neobones Dark Stark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/neobones_dark_stark.json"
+      },
+      {
+        "label": "Zenbones Neobones Dark Warm",
+        "uiTheme": "vs-dark",
+        "path": "./themes/neobones_dark_warm.json"
+      },
+      {
+        "label": "Zenbones Neobones Light Bright",
+        "uiTheme": "vs",
+        "path": "./themes/neobones_light_bright.json"
+      },
+      {
+        "label": "Zenbones Neobones Light",
+        "uiTheme": "vs",
+        "path": "./themes/neobones_light_default.json"
+      },
+      {
+        "label": "Zenbones Neobones Light Dim",
+        "uiTheme": "vs",
+        "path": "./themes/neobones_light_dim.json"
+      },
+      {
+        "label": "Zenbones Nordbones Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/nordbones_default.json"
+      },
+      {
+        "label": "Zenbones Nordbones Dark Stark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/nordbones_stark.json"
+      },
+      {
+        "label": "Zenbones Nordbones Dark Warm",
+        "uiTheme": "vs-dark",
+        "path": "./themes/nordbones_warm.json"
+      },
+      {
+        "label": "Zenbones Rosebones Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/rosebones_dark_default.json"
+      },
+      {
+        "label": "Zenbones Rosebones Dark Stark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/rosebones_dark_stark.json"
+      },
+      {
+        "label": "Zenbones Rosebones Dark Warm",
+        "uiTheme": "vs-dark",
+        "path": "./themes/rosebones_dark_warm.json"
+      },
+      {
+        "label": "Zenbones Rosebones Light Bright",
+        "uiTheme": "vs",
+        "path": "./themes/rosebones_light_bright.json"
+      },
+      {
+        "label": "Zenbones Rosebones Light",
+        "uiTheme": "vs",
+        "path": "./themes/rosebones_light_default.json"
+      },
+      {
+        "label": "Zenbones Rosebones Light Dim",
+        "uiTheme": "vs",
+        "path": "./themes/rosebones_light_dim.json"
+      },
+      {
+        "label": "Zenbones Seoulbones Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/seoulbones_dark_default.json"
+      },
+      {
+        "label": "Zenbones Seoulbones Dark Stark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/seoulbones_dark_stark.json"
+      },
+      {
+        "label": "Zenbones Seoulbones Dark Warm",
+        "uiTheme": "vs-dark",
+        "path": "./themes/seoulbones_dark_warm.json"
+      },
+      {
+        "label": "Zenbones Seoulbones Light Bright",
+        "uiTheme": "vs",
+        "path": "./themes/seoulbones_light_bright.json"
+      },
+      {
+        "label": "Zenbones Seoulbones Light",
+        "uiTheme": "vs",
+        "path": "./themes/seoulbones_light_default.json"
+      },
+      {
+        "label": "Zenbones Seoulbones Light Dim",
+        "uiTheme": "vs",
+        "path": "./themes/seoulbones_light_dim.json"
+      },
+      {
+        "label": "Zenbones Tokyobones Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tokyobones_dark_default.json"
+      },
+      {
+        "label": "Zenbones Tokyobones Dark Stark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tokyobones_dark_stark.json"
+      },
+      {
+        "label": "Zenbones Tokyobones Dark Warm",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tokyobones_dark_warm.json"
+      },
+      {
+        "label": "Zenbones Tokyobones Light Bright",
+        "uiTheme": "vs",
+        "path": "./themes/tokyobones_light_bright.json"
+      },
+      {
+        "label": "Zenbones Tokyobones Light",
+        "uiTheme": "vs",
+        "path": "./themes/tokyobones_light_default.json"
+      },
+      {
+        "label": "Zenbones Tokyobones Light Dim",
+        "uiTheme": "vs",
+        "path": "./themes/tokyobones_light_dim.json"
+      },
+      {
+        "label": "Zenbones Vimbones Light Bright",
+        "uiTheme": "vs",
+        "path": "./themes/vimbones_bright.json"
+      },
+      {
+        "label": "Zenbones Vimbones Light",
+        "uiTheme": "vs",
+        "path": "./themes/vimbones_default.json"
+      },
+      {
+        "label": "Zenbones Vimbones Light Dim",
+        "uiTheme": "vs",
+        "path": "./themes/vimbones_dim.json"
+      },
+      {
+        "label": "Zenbones Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/zenbones_dark_default.json"
+      },
+      {
+        "label": "Zenbones Dark Stark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/zenbones_dark_stark.json"
+      },
+      {
+        "label": "Zenbones Dark Warm",
+        "uiTheme": "vs-dark",
+        "path": "./themes/zenbones_dark_warm.json"
+      },
+      {
+        "label": "Zenbones Light Bright",
+        "uiTheme": "vs",
+        "path": "./themes/zenbones_light_bright.json"
+      },
+      {
+        "label": "Zenbones Light",
+        "uiTheme": "vs",
+        "path": "./themes/zenbones_light_default.json"
+      },
+      {
+        "label": "Zenbones Light Dim",
+        "uiTheme": "vs",
+        "path": "./themes/zenbones_light_dim.json"
+      },
+      {
+        "label": "Zenbones Zenburned Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/zenburned_default.json"
+      },
+      {
+        "label": "Zenbones Zenburned Dark Stark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/zenburned_stark.json"
+      },
+      {
+        "label": "Zenbones Zenburned Dark Warm",
+        "uiTheme": "vs-dark",
+        "path": "./themes/zenburned_warm.json"
+      },
+      {
+        "label": "Zenbones Zenwritten Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/zenwritten_dark_default.json"
+      },
+      {
+        "label": "Zenbones Zenwritten Dark Stark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/zenwritten_dark_stark.json"
+      },
+      {
+        "label": "Zenbones Zenwritten Dark Warm",
+        "uiTheme": "vs-dark",
+        "path": "./themes/zenwritten_dark_warm.json"
+      },
+      {
+        "label": "Zenbones Zenwritten Light Bright",
+        "uiTheme": "vs",
+        "path": "./themes/zenwritten_light_bright.json"
+      },
+      {
+        "label": "Zenbones Zenwritten Light",
+        "uiTheme": "vs",
+        "path": "./themes/zenwritten_light_default.json"
+      },
+      {
+        "label": "Zenbones Zenwritten Light Dim",
+        "uiTheme": "vs",
+        "path": "./themes/zenwritten_light_dim.json"
+      }
+    ]
+  }
 }
