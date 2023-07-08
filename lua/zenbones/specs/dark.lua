@@ -23,20 +23,11 @@ local function generate(p, opt)
 	---@diagnostic disable: undefined-global
 	-- selene: allow(undefined_variable)
 	-- stylua: ignore start
-	local base = lush(function()
+	local base = lush(function(injected_functions)
+		-- functions are injected via a table for future expansion
+		-- you probably want to alias it locally
+		local sym = injected_functions.sym
 		return {
-			-- The following are all the Neovim default highlight groups from the docs
-			-- as of 0.5.0-nightly-446, to aid your theme creation. Your themes should
-			-- probably style all of these at a bare minimum.
-			--
-			-- Referenced/linked groups must come before being referenced/lined,
-			-- so the order shown ((mostly) alphabetical) is likely
-			-- not the order you will end up with.
-			--
-			-- You can uncomment these and leave them empty to disable any
-			-- styling for that group (meaning they mostly get styled as Normal)
-			-- or leave them commented to apply vims default colouring or linking.
-
 			Normal          { bg = not opt.transparent_background and p1.bg or "NONE", fg = p.fg }, -- normal text
 
 			Underlined      { gui = "underline" }, -- (preferred) text that stands out, HTML links
@@ -68,7 +59,7 @@ local function generate(p, opt)
 			LineNr          { fg = p1.bg.li(opt.lighten_line_nr or 35), bg = opt.solid_line_nr and p1.bg.li(4) or "NONE" }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 			SignColumn      { LineNr }, -- column where |signs| are displayed
 			FoldColumn      { LineNr, gui = "bold" }, -- 'foldcolumn'
-			Folded          { bg = p1.bg.li(14), fg = p1.bg.li(64) }, -- line used for closed folds
+			Folded          { bg = not opt.transparent_background and p1.bg.li(14) or "NONE", fg = p1.bg.li(64) }, -- line used for closed folds
 			CursorLineNr    { LineNr, fg = p.fg, gui = "bold" }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 
 			-- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
@@ -177,6 +168,8 @@ local function generate(p, opt)
 			DiagnosticWarn             { WarningMsg },
 			DiagnosticInfo             { fg = p.water },
 			DiagnosticHint             { fg = p.blossom },
+			DiagnosticDeprecated       { DiagnosticWarn },
+			DiagnosticUnnecessary      { DiagnosticWarn },
 
 			DiagnosticSignError        { SignColumn, fg = DiagnosticError.fg },
 			DiagnosticSignWarn         { SignColumn, fg = DiagnosticWarn.fg },
@@ -193,77 +186,117 @@ local function generate(p, opt)
 			DiagnosticUnderlineInfo    { fg = opt.colorize_diagnostic_underline_text and DiagnosticInfo.fg or "NONE", gui = "undercurl", sp = DiagnosticInfo.fg },
 			DiagnosticUnderlineHint    { fg = opt.colorize_diagnostic_underline_text and DiagnosticHint.fg or "NONE", gui = "undercurl", sp = DiagnosticHint.fg },
 
-			-- These groups are for the neovim tree-sitter highlights.
-			-- As of writing, tree-sitter support is a WIP, group names may change.
-			-- By default, most of these groups link to an appropriate Vim group,
-			-- TSError -> Error for example, so you do not have to define these unless
-			-- you explicitly want to support Treesitter's improved syntax awareness.
+			-- Tree-sitter
+			sym "@annotation"            { PreProc },
+			sym "@attribute"             { PreProc },
+			sym "@boolean"               { Number },
+			sym "@character"             { Constant },
+			sym "@character.special"     { Special },
+			sym "@comment"               { Comment },
+			sym "@conditional"           { Statement },
+			sym "@constant"              { Identifier, gui = "bold" },
+			sym "@constant.builtin"      { Number },
+			sym "@constant.macro"        { Number },
+			sym "@constructor"           { Special },
+			sym "@debug"                 { Special },
+			sym "@define"                { PreProc },
+			sym "@exception"             { Statement },
+			sym "@field"                 { Identifier },
+			sym "@float"                 { Number },
+			sym "@function"              { Function },
+			sym "@function.builtin"      { Special },
+			sym "@function.call"         { Function },
+			sym "@function.macro"        { PreProc },
+			sym "@include"               { PreProc },
+			sym "@keyword"               { Statement },
+			sym "@keyword.function"      { Statement },
+			sym "@keyword.operator"      { Statement },
+			sym "@keyword.return"        { Statement },
+			sym "@keyword.coroutine"     { Statement },
+			sym "@label"                 { Statement },
+			sym "@method"                { Function },
+			sym "@method.call"           { Function },
+			sym "@namespace"             { Special },
+			sym "@none"                  { },
+			sym "@number"                { Number },
+			sym "@operator"              { Statement },
+			sym "@parameter"             { Identifier },
+			sym "@parameter.reference"   { sym "@parameter" },
+			sym "@preproc"               { PreProc },
+			sym "@property"              { Identifier },
+			sym "@punctuation.bracket"   { Delimiter },
+			sym "@punctuation.delimiter" { Delimiter },
+			sym "@punctuation.special"   { Delimiter },
+			sym "@repeat"                { Statement },
+			sym "@storageclass"          { Type },
+			sym "@string"                { Constant },
+			sym "@string.escape"         { Special },
+			sym "@string.regex"          { Constant },
+			sym "@string.special"        { Special },
+			sym "@symbol"                { Identifier },
+			sym "@tag"                   { Special },
+			sym "@tag.attribute"         { sym "@property" },
+			sym "@tag.delimiter"         { Delimiter },
+			sym "@text"                  { sym "@none" },
+			sym "@text.danger"           { Error },
+			sym "@text.emphasis"         { Italic },
+			sym "@text.environment"      { PreProc },
+			sym "@text.environment.name" { Type },
+			sym "@text.literal"          { Constant },
+			sym "@text.math"             { Special },
+			sym "@text.note"             { DiagnosticInfo },
+			sym "@text.reference"        { Constant },
+			sym "@text.strike"           { gui = "strikethrough" },
+			sym "@text.strong"           { Bold },
+			sym "@text.title"            { Title },
+			sym "@text.underline"        { Underlined },
+			sym "@text.uri"              { Underlined },
+			sym "@text.warning"          { WarningMsg },
+			sym "@todo"                  { Todo },
+			sym "@type"                  { Type },
+			sym "@type.builtin"          { Type },
+			sym "@type.definition"       { Type },
+			sym "@type.qualifier"        { Type },
+			sym "@variable"              { Identifier },
+			sym "@variable.builtin"      { Number },
 
-			-- TSAnnotation         { };	-- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
-			-- TSAttribute          { };	-- (unstable) TODO: docs
-			-- TSBoolean            { };	-- For booleans.
-			-- TSCharacter          { };	-- For characters.
-			-- TSComment            { };	-- For comment blocks.
-			-- TSConstructor        { };	-- For constructor calls and definitions: ` { }` in Lua, and Java constructors.
-			-- TSConditional        { };	-- For keywords related to conditionnals.
-			TSConstant              { Identifier, gui = "bold" };	-- For constants
-			TSConstBuiltin          { Number };	-- For constant that are built in the language: `nil` in Lua.
-			TSConstMacro            { Number };	-- For constants that are defined by macros: `NULL` in C.
-			-- TSError              { };	-- For syntax/parser errors.
-			-- TSException          { };	-- For exception related keywords.
-			-- TSField              { };	-- For fields.
-			-- TSFloat              { };	-- For floats.
-			-- TSFunction           { };	-- For function (calls and definitions).
-			-- TSFuncBuiltin        { };	-- For builtin functions: `print` in Lua.
-			-- TSFuncMacro          { };	-- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-			-- TSInclude            { };	-- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-			-- TSKeyword            { };	-- For keywords that don't fall in previous categories.
-			-- TSKeywordFunction    { };	-- For keywords used to define a fuction.
-			-- TSLabel              { };	-- For labels: `label:` in C and `:label:` in Lua.
-			-- TSMethod             { };	-- For method calls and definitions.
-			TSNamespace             { Special };	-- For identifiers referring to modules and namespaces.
-			-- TSNone               { };	-- TODO: docs
-			-- TSNumber             { };	-- For all numbers
-			-- TSOperator           { };	-- For any operator: `+`, but also `->` and `*` in C.
-			-- TSParameter          { };	-- For parameters of a function.
-			-- TSParameterReference { };	-- For references to parameters of a function.
-			-- TSProperty           { };	-- Same as `TSField`.
-			-- TSPunctDelimiter     { };	-- For delimiters ie: `.`
-			-- TSPunctBracket       { };	-- For brackets and parens.
-			-- TSPunctSpecial       { };	-- For special punctutation that does not fall in the catagories before.
-			-- TSRepeat             { };	-- For keywords related to loops.
-			-- TSString             { };	-- For strings.
-			-- TSStringRegex        { };	-- For regexes.
-			-- TSStringEscape       { };	-- For escape characters within a string.
-			-- TSSymbol             { };	-- For identifiers referring to symbols or atoms.
-			-- TSType               { };	-- For types.
-			-- TSTypeBuiltin        { };	-- For builtin types.
-			TSVariable              { Identifier }, -- Any variable name that does not have another highlight.
-			TSVariableBuiltin       { Number };	-- Variable names that are defined by the languages, like `this` or `self`.
+			sym "@punctuation.special.markdown" { Special },
+			sym "@string.escape.markdown"       { SpecialKey },
+			sym "@text.reference.markdown"      { Identifier, gui = "underline" },
+			sym "@text.emphasis.markdown"       { Italic },
+			sym "@text.title.markdown"          { Statement },
+			sym "@text.literal.markdown"        { Type },
+			sym "@text.uri.markdown"            { SpecialComment },
 
-			TSTag                   { Special }, -- Tags like html tag names.
-			-- TSTagDelimiter       { };	-- Tag delimiter like `<` `>` `/`
-			-- TSText               { };	-- For strings considered text in a markup language.
-			TSEmphasis              { Italic },	-- For text to be represented with emphasis.
-			TSUnderline             { Underlined },	-- For text to be represented with an underline.
-			TSStrong                { Bold },	-- Text to be represented in bold.
-			-- TSStrike             { };	-- For strikethrough text.
-			-- TSTitle              { };	-- Text that is part of a title.
-			-- TSLiteral            { };	-- Literal text.
-			-- TSURI                { };	-- Any URI like a link or email.
-
-			TSNote                  { DiagnosticInfo },
-			TSWarning               { WarningMsg },
-			TSDanger                { Error },
-
-			-- TS: Markdown
-			markdownTSPunctSpecial  { Special },
-			markdownTSStringEscape  { SpecialKey },
-			markdownTSTextReference { Identifier, gui = "underline" },
-			markdownTSEmphasis      { Italic },
-			markdownTSTitle         { Statement },
-			markdownTSLiteral       { Type },
-			markdownTSURI           { SpecialComment },
+			-- LSP Semantic Token Groups
+			sym "@lsp.type.boolean"                    { sym "@boolean" },
+			sym "@lsp.type.builtinType"                { sym "@type.builtin" },
+			sym "@lsp.type.comment"                    { sym "@comment" },
+			sym "@lsp.type.enum"                       { sym "@type" },
+			sym "@lsp.type.enumMember"                 { sym "@constant" },
+			sym "@lsp.type.escapeSequence"             { sym "@string.escape" },
+			sym "@lsp.type.formatSpecifier"            { sym "@punctuation.special" },
+			sym "@lsp.type.keyword"                    { sym "@keyword" },
+			sym "@lsp.type.namespace"                  { sym "@namespace" },
+			sym "@lsp.type.number"                     { sym "@number" },
+			sym "@lsp.type.parameter"                  { sym "@parameter" },
+			sym "@lsp.type.property"                   { sym "@property" },
+			sym "@lsp.type.selfKeyword"                { sym "@variable.builtin" },
+			sym "@lsp.type.string.rust"                { sym "@string" },
+			sym "@lsp.type.typeAlias"                  { sym "@type.definition" },
+			sym "@lsp.type.unresolvedReference"        { gui = "undercurl", sp = Error.fg },
+			sym "@lsp.type.variable"                   { sym "@variable" },
+			sym "@lsp.typemod.class.defaultLibrary"    { sym "@type.builtin" },
+			sym "@lsp.typemod.enum.defaultLibrary"     { sym "@type.builtin" },
+			sym "@lsp.typemod.enumMember.defaultLibrary" { sym "@constant.builtin" },
+			sym "@lsp.typemod.method.defaultLibrary"   { sym "@function.builtin" },
+			sym "@lsp.typemod.function.defaultLibrary" { sym "@function.builtin" },
+			sym "@lsp.typemod.macro.defaultLibrary"    { sym "@function.builtin" },
+			sym "@lsp.typemod.keyword.async"           { sym "@keyword.coroutine" },
+			sym "@lsp.typemod.operator.injected"       { sym "@operator" },
+			sym "@lsp.typemod.string.injected"         { sym "@string" },
+			sym "@lsp.typemod.variable.defaultLibrary" { sym "@variable.builtin" },
+			sym "@lsp.typemod.variable.injected"       { sym "@variable" },
 
 			-- Syntax
 			diffAdded                 { fg = p.leaf },
@@ -275,11 +308,14 @@ local function generate(p, opt)
 			diffLine                  { fg = p.blossom, gui = "bold" },
 			diffIndexLine             { fg = p.wood },
 
+			sym "@text.diff.add"      { diffAdded },
+			sym "@text.diff.delete"   { diffRemoved },
+
 			gitcommitOverflow         { WarningMsg },
 
-			markdownUrl               { markdownTSURI },
-			markdownCode              { markdownTSLiteral },
-			markdownLinkText          { markdownTSTextReference },
+			markdownUrl               { SpecialComment },
+			markdownCode              { Type },
+			markdownLinkText          { Identifier, gui = "underline" },
 			markdownLinkTextDelimiter { Delimiter },
 
 			helpHyperTextEntry        { Special },
@@ -307,22 +343,15 @@ local function generate(p, opt)
 			SneakLabel                       { WildMenu },
 			SneakLabelMask                   { bg = p.blossom, fg = p.blossom },
 
-			LightspeedLabel                  { fg = p.blossom, gui = "bold,underline" },
-			LightspeedLabelOverlapped        { fg = p.blossom, gui = "underline" },
-			LightspeedLabelDistant           { fg = p.sky, gui = "bold,underline" },
-			LightspeedLabelDistantOverlapped { fg = p.sky, gui = "underline" },
-			LightspeedShortcut               { SneakLabel, gui = "bold,underline" },
-			LightspeedOneCharMatch           { SneakLabel, gui = "bold" },
-			LightspeedMaskedChar             { Conceal },
-			LightspeedUnlabeledMatch         { Bold },
-			LightspeedPendingOpArea          { SneakLabel },
-			LightspeedPendingChangeOpArea    { fg = p.blossom },
-			LightspeedGreyWash               { fg = Comment.fg },
+			LeapMatch                        { gui = "bold,underline,nocombine" },
+			LeapLabelPrimary                 { Search , gui = "bold,nocombine" },
+			LeapLabelSecondary               { DiffText, gui = "bold,nocombine" },
+			LeapLabelSelected                { IncSearch },
 
-			HopNextKey                       { LightspeedLabel },
-			HopNextKey1                      { LightspeedLabelDistant },
+			HopNextKey                       { fg = p.blossom, gui = "bold,underline" },
+			HopNextKey1                      { fg = p.sky, gui = "bold,underline" },
 			HopNextKey2                      { fg = p.water },
-			HopUnmatched                     { LightspeedGreyWash } ,
+			HopUnmatched                     { fg = Comment.fg },
 
 			BufferCurrent                    { TabLineSel },
 			BufferVisible                    { fg = StatusLineNC.fg },
@@ -339,6 +368,7 @@ local function generate(p, opt)
 			CocHintHighlight                 { DiagnosticUnderlineHint },
 			CocErrorVirtualText              { DiagnosticVirtualTextError },
 			CocWarningVitualText             { DiagnosticVirtualTextWarn },
+			CocMenuSel                       { CursorLine },
 			CocSelectedText                  { SpellBad },
 			CocCodeLens                      { LineNr },
 			CocMarkdownLink                  { fg = p.sky, gui = "underline" },
@@ -356,7 +386,7 @@ local function generate(p, opt)
 
 			WhichKey                         { Statement },
 			WhichKeyGroup                    { Special },
-			WhichKeySeparator                { LineNr },
+			WhichKeySeparator                { fg = LineNr.fg },
 			WhichKeyValue                    { Constant },
 
 			TroubleNormal                    { Function },
@@ -385,6 +415,29 @@ local function generate(p, opt)
 			NnnNormalNC                      { NnnNormal },
 			NnnWinSeparator                  { NvimTreeWinSeparator },
 			NnnVertSplit                     { NnnWinSeparator },
+
+			MasonHighlight                   { fg = p.water },
+			MasonHighlightBlock				 { fg = p1.bg, bg = MasonHighlight.fg },
+			MasonHighlightBlockBold 		 { MasonHighlightBlock, gui = "bold" },
+			MasonHighlightSecondary          { fg = p.wood },
+			MasonHighlightBlockSecondary     { fg = p1.bg, bg = MasonHighlightSecondary.fg },
+			MasonHighlightBlockBoldSecondary { MasonHighlightBlockSecondary, gui = "bold" },
+			MasonMuted	                     { fg = p1.fg4 },
+			MasonMutedBlock	                 { fg = p1.bg, bg = MasonMuted.fg },
+			MasonMutedBlockBold	             { MasonMutedBlock, gui = "bold" },
+			MasonHeader	                     { fg = p1.bg, bg = p.wood, gui = "bold" },
+			MasonError                       { Error },
+
+			NoiceCmdlineIcon                 { fg = p.water },
+			NoiceCmdlineIconSearch           { WarningMsg },
+			NoiceCmdlinePopupBorder          { NoiceCmdlineIcon },
+			NoiceCmdlinePopupBorderSearch    { WarningMsg },
+			NoiceCmdlinePopupTitle           { NoiceCmdlineIcon },
+			NoiceCompletionItemKindDefault   { fg = p1.fg4 },
+			NoiceConfirmBorder               { NoiceCmdlineIcon },
+
+			FlashLabel                       { bg = p.water.lightness(p1.bg.l + 24), fg = p.fg },
+			FlashBackdrop                    { fg = Comment.fg },
 		}
 	end)
 	-- stylua: ignore end
@@ -409,46 +462,6 @@ local function generate(p, opt)
 			---@diagnostic enable: undefined-global
 		)
 	end
-
-	-- stylua: ignore start
-	if not vim.diagnostic then
-		table.insert(
-			specs,
-			---@diagnostic disable: undefined-global
-			-- selene: allow(undefined_variable)
-			lush(function()
-				return {
-					LspDiagnosticsDefaultError              { base.DiagnosticError }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-					LspDiagnosticsDefaultWarning            { base.DiagnosticWarn }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-					LspDiagnosticsDefaultInformation        { base.DiagnosticInfo }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-					LspDiagnosticsDefaultHint               { base.DiagnosticHint }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-
-					LspDiagnosticsVirtualTextError          { base.DiagnosticVirtualTextError }, -- Used for "Error" diagnostic virtual text
-					LspDiagnosticsVirtualTextWarning        { base.DiagnosticVirtualTextWarn }, -- Used for "Warning" diagnostic virtual text
-					LspDiagnosticsVirtualTextInformation    { base.DiagnosticVirtualTextInfo }, -- Used for "Information" diagnostic virtual text
-					LspDiagnosticsVirtualTextHint           { base.DiagnosticVirtualTextHint }, -- Used for "Hint" diagnostic virtual text
-
-					LspDiagnosticsUnderlineError            { base.DiagnosticUnderlineError }, -- Used to underline "Error" diagnostics
-					LspDiagnosticsUnderlineWarning          { base.DiagnosticUnderlineWarn }, -- Used to underline "Warning" diagnostics
-					LspDiagnosticsUnderlineInformation      { base.DiagnosticUnderlineInfo }, -- Used to underline "Information" diagnostics
-					LspDiagnosticsUnderlineHint             { base.DiagnosticUnderlineHint }, -- Used to underline "Hint" diagnostics
-
-					-- LspDiagnosticsFloatingError          { }, -- Used to color "Error" diagnostic messages in diagnostics float
-					-- LspDiagnosticsFloatingWarning        { }, -- Used to color "Warning" diagnostic messages in diagnostics float
-					-- LspDiagnosticsFloatingInformation    { }, -- Used to color "Information" diagnostic messages in diagnostics float
-					-- LspDiagnosticsFloatingHint           { }, -- Used to color "Hint" diagnostic messages in diagnostics float
-
-					LspDiagnosticsSignError                 { base.DiagnosticSignError }, -- Used for "Error" signs in sign column
-					LspDiagnosticsSignWarning               { base.DiagnosticSignWarn }, -- Used for "Warning" signs in sign column
-					LspDiagnosticsSignInformation           { base.DiagnosticSignInfo }, -- Used for "Information" signs in sign column
-					LspDiagnosticsSignHint                  { base.DiagnosticSignHint }, -- Used for "Hint" signs in sign column
-				}
-			end)
-			-- selene: deny(undefined_variable)
-			---@diagnostic enable: undefined-global
-		)
-	end
-	-- stylua: ignore end
 
 	return lush.merge(specs)
 end

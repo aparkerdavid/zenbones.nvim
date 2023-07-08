@@ -3,6 +3,10 @@
 A collection of Vim/Neovim colorschemes designed to highlight code using
 contrasts and font variations.
 
+## Requirement
+
+-   Neovim v0.8.0 (use v2.0.0 for older versions) or Vim 8.1
+
 ## Usage
 
 Just apply the colorscheme as usual:
@@ -81,9 +85,11 @@ the flavor name e.g. `g:rosebones_italic_comments`.
 | colorize_diagnostic_underline_text | both       | `false` | Colorize the fg of `DiagnosticUnderline*`.                                |
 | transparent_background             | both       | `false` | Make background transparent.                                              |
 
-#### g:zenbones_compat
+#### g:bones_compat
 
-Set to `1` to enable compatibility mode. Enabled in Vim.
+Set to `1` to enable compatibility mode for all colorschemes. Enabled in Vim. To
+enable/disable compatibility mode for a specific theme, set the variable
+`g:{theme}_compat` to `0` or `1`, e.g. `let g:zenbones_compat = 1`.
 
 ### lightline
 
@@ -162,7 +168,7 @@ local lush = require "lush"
 local hsluv = lush.hsluv -- Human-friendly hsl
 local util = require "zenbones.util"
 
-local bg = vim.opt.background:get()
+local bg = vim.o.background
 
 -- Define a palette. Use `palette_extend` to fill unspecified colors
 -- Based on https://github.com/gruvbox-community/gruvbox#palette
