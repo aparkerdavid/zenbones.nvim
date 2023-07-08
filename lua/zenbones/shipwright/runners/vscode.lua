@@ -884,6 +884,13 @@ local function to_table(colorscheme)
 				},
 				["settings"] = to_token_colors(specs.Special),
 			},
+			{
+				["name"] = "PropertyName",
+				["scope"] = {
+					"support.type.property-name",
+				},
+				["settings"] = to_token_colors(specs.Number),
+			},
 		}
 	}
 end
