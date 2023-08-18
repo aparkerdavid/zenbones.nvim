@@ -80,6 +80,7 @@ M.run = function()
 	local runner_files = {
 		"vim",
 		"iterm",
+    "emacs",
 		"alacritty",
 		"kitty",
 		"wezterm",
