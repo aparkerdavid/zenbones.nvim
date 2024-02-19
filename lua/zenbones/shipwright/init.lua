@@ -81,6 +81,7 @@ M.run = function()
 		"vim",
 		"iterm",
     "emacs",
+    "kakoune",
 		"alacritty",
 		"kitty",
 		"wezterm",
