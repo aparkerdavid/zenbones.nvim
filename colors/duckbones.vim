@@ -46,7 +46,6 @@ if &background ==# 'dark'
     highlight Constant guifg=#AEB18D guibg=NONE guisp=NONE gui=italic cterm=italic
     highlight! link TroubleSource Constant
     highlight! link WhichKeyValue Constant
-    highlight! link helpHyperTextJump Constant
     highlight! link helpOption Constant
     highlight Cursor guifg=#0E101A guibg=#EDF2C2 guisp=NONE gui=NONE cterm=NONE
     highlight! link TermCursor Cursor
@@ -56,14 +55,24 @@ if &background ==# 'dark'
     highlight CursorLineNr guifg=#EBEFC0 guibg=NONE guisp=NONE gui=bold cterm=bold
     highlight Delimiter guifg=#6D759D guibg=NONE guisp=NONE gui=NONE cterm=NONE
     highlight! link markdownLinkTextDelimiter Delimiter
+    highlight! link NotifyERRORIcon DiagnosticError
+    highlight! link NotifyERRORTitle DiagnosticError
     highlight DiagnosticHint guifg=#795CCC guibg=NONE guisp=NONE gui=NONE cterm=NONE
+    highlight! link NotifyDEBUGIcon DiagnosticHint
+    highlight! link NotifyDEBUGTitle DiagnosticHint
+    highlight! link NotifyTRACEIcon DiagnosticHint
+    highlight! link NotifyTRACETitle DiagnosticHint
     highlight DiagnosticInfo guifg=#00A3CB guibg=NONE guisp=NONE gui=NONE cterm=NONE
+    highlight! link NotifyINFOIcon DiagnosticInfo
+    highlight! link NotifyINFOTitle DiagnosticInfo
+    highlight DiagnosticOk guifg=#5DCD97 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     highlight DiagnosticSignError guifg=#E03600 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     highlight! link CocErrorSign DiagnosticSignError
     highlight DiagnosticSignHint guifg=#795CCC guibg=NONE guisp=NONE gui=NONE cterm=NONE
     highlight! link CocHintSign DiagnosticSignHint
     highlight DiagnosticSignInfo guifg=#00A3CB guibg=NONE guisp=NONE gui=NONE cterm=NONE
     highlight! link CocInfoSign DiagnosticSignInfo
+    highlight DiagnosticSignOk guifg=#5DCD97 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     highlight DiagnosticSignWarn guifg=#E39500 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     highlight! link CocWarningSign DiagnosticSignWarn
     highlight DiagnosticUnderlineError guifg=NONE guibg=NONE guisp=#E03600 gui=undercurl cterm=undercurl
@@ -72,16 +81,20 @@ if &background ==# 'dark'
     highlight! link CocHintHighlight DiagnosticUnderlineHint
     highlight DiagnosticUnderlineInfo guifg=NONE guibg=NONE guisp=#00A3CB gui=undercurl cterm=undercurl
     highlight! link CocInfoHighlight DiagnosticUnderlineInfo
+    highlight DiagnosticUnderlineOk guifg=NONE guibg=NONE guisp=#5DCD97 gui=undercurl cterm=undercurl
     highlight DiagnosticUnderlineWarn guifg=NONE guibg=NONE guisp=#E39500 gui=undercurl cterm=undercurl
     highlight! link CocWarningHighlight DiagnosticUnderlineWarn
     highlight DiagnosticVirtualTextError guifg=#E03600 guibg=#1E1818 guisp=NONE gui=NONE cterm=NONE
     highlight! link CocErrorVirtualText DiagnosticVirtualTextError
     highlight DiagnosticVirtualTextHint guifg=#795CCC guibg=#1A191E guisp=NONE gui=NONE cterm=NONE
     highlight DiagnosticVirtualTextInfo guifg=#00A3CB guibg=#181A1B guisp=NONE gui=NONE cterm=NONE
+    highlight DiagnosticVirtualTextOk guifg=#5DCD97 guibg=#181A19 guisp=NONE gui=NONE cterm=NONE
     highlight DiagnosticVirtualTextWarn guifg=#E39500 guibg=#1B1918 guisp=NONE gui=NONE cterm=NONE
-    highlight! link CocWarningVitualText DiagnosticVirtualTextWarn
+    highlight! link CocWarningVirtualText DiagnosticVirtualTextWarn
     highlight! link DiagnosticDeprecated DiagnosticWarn
     highlight! link DiagnosticUnnecessary DiagnosticWarn
+    highlight! link NotifyWARNIcon DiagnosticWarn
+    highlight! link NotifyWARNTitle DiagnosticWarn
     highlight DiffAdd guifg=NONE guibg=#15251C guisp=NONE gui=NONE cterm=NONE
     highlight DiffChange guifg=NONE guibg=#17232A guisp=NONE gui=NONE cterm=NONE
     highlight DiffDelete guifg=NONE guibg=#311C1A guisp=NONE gui=NONE cterm=NONE
@@ -104,10 +117,11 @@ if &background ==# 'dark'
     highlight! link GitGutterChange GitSignsChange
     highlight GitSignsDelete guifg=#E03600 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     highlight! link GitGutterDelete GitSignsDelete
+    highlight IblIndent guifg=#1F212D guibg=NONE guisp=NONE gui=NONE cterm=NONE
+    highlight IblScope guifg=#393D50 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     highlight Identifier guifg=#C6CAA1 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     highlight IncSearch guifg=#0E101A guibg=#9A87DC guisp=NONE gui=bold cterm=bold
     highlight! link CurSearch IncSearch
-    highlight IndentBlanklineChar guifg=#292B3A guibg=NONE guisp=NONE gui=NONE cterm=NONE
     highlight Italic guifg=NONE guibg=NONE guisp=NONE gui=italic cterm=italic
     highlight LineNr guifg=#51587A guibg=NONE guisp=NONE gui=NONE cterm=NONE
     highlight! link CocCodeLens LineNr
@@ -135,7 +149,6 @@ if &background ==# 'dark'
     highlight SneakLabelMask guifg=#795CCC guibg=#795CCC guisp=NONE gui=NONE cterm=NONE
     highlight Special guifg=#5DCD97 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     highlight! link WhichKeyGroup Special
-    highlight! link helpHyperTextEntry Special
     highlight SpecialComment guifg=#5A5F7B guibg=NONE guisp=NONE gui=NONE cterm=NONE
     highlight! link markdownUrl SpecialComment
     highlight SpecialKey guifg=#484E6D guibg=NONE guisp=NONE gui=italic cterm=italic
@@ -175,6 +188,8 @@ if &background ==# 'dark'
     highlight diffNewFile guifg=#5DCD97 guibg=NONE guisp=NONE gui=italic cterm=italic
     highlight diffOldFile guifg=#E03600 guibg=NONE guisp=NONE gui=italic cterm=italic
     highlight diffRemoved guifg=#E03600 guibg=NONE guisp=NONE gui=NONE cterm=NONE
+    highlight helpHyperTextEntry guifg=#898FB1 guibg=NONE guisp=NONE gui=bold cterm=bold
+    highlight helpHyperTextJump guifg=#C6CAA1 guibg=NONE guisp=NONE gui=underline cterm=underline
     highlight lCursor guifg=#0E101A guibg=#939677 guisp=NONE gui=NONE cterm=NONE
     highlight! link TermCursorNC lCursor
     highlight markdownLinkText guifg=#C6CAA1 guibg=NONE guisp=NONE gui=underline cterm=underline
@@ -192,7 +207,6 @@ if &background ==# 'dark'
         highlight WhichKeyValue gui=NONE cterm=NONE
         highlight diffNewFile gui=NONE cterm=NONE
         highlight diffOldFile gui=NONE cterm=NONE
-        highlight helpHyperTextJump gui=NONE cterm=NONE
         highlight helpOption gui=NONE cterm=NONE
         " no italics dark end
     endif
