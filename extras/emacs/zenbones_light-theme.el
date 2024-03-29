@@ -7,8 +7,6 @@
 (let ((class '((class color) (min-colors 89))))
    (custom-theme-set-faces
    'zenbones_light
-;; CocSearch: {"link": "Search"}
-;; NeogitNotificationError: {"link": "DiagnosticError"}
 ;; NeogitNotificationWarning: {"link": "DiagnosticWarn"}
 ;; NeogitNotificationInfo: {"link": "DiagnosticInfo"}
 ;; NeogitDiffContextHighlight: {"link": "CursorLine"}
@@ -63,64 +61,263 @@
 ;; NoiceConfirmBorder: {"link": "NoiceCmdlineIcon"}
 ;; FlashLabel: {"bg": [], "fg": []}
 ;; FlashBackdrop: {"fg": []}
-;; Italic: {"gui": "italic"}
-;; Normal: {"bg": [], "fg": []}
-;; Cursor: {"bg": [], "fg": []}
-;; Visual: {"bg": []}
-;; Type: {"fg": []}
-;; PreProc: {"link": "Statement"}
-;; Statement: {"gui": "bold", "fg": []}
-;; Function: {"fg": []}
-;; Identifier: {"fg": []}
-;; Boolean: {"link": "Number"}
-;; @exception: {"link": "Statement"}
-;; @define: {"link": "PreProc"}
-;; @debug: {"link": "Special"}
-;; @constructor: {"link": "Special"}
-;; @constant.macro: {"link": "Number"}
-;; @constant.builtin: {"link": "Number"}
-;; EndOfBuffer: {"link": "NonText"}
+;; NotifyERRORIcon: {"link": "DiagnosticError"}
+;; NotifyERRORTitle: {"link": "DiagnosticError"}
+;; NotifyWARNIcon: {"link": "DiagnosticWarn"}
+;; NotifyWARNTitle: {"link": "DiagnosticWarn"}
+;; NotifyINFOIcon: {"link": "DiagnosticInfo"}
+;; NotifyINFOTitle: {"link": "DiagnosticInfo"}
+;; NotifyDEBUGIcon: {"link": "DiagnosticHint"}
+;; NotifyDEBUGTitle: {"link": "DiagnosticHint"}
+;; NotifyTRACEIcon: {"link": "DiagnosticHint"}
+;; NotifyTRACETitle: {"link": "DiagnosticHint"}
+;; @comment: {"link": "Comment"}
+;; @comment.documentation: {"link": "@comment"}
+;; @comment.error: {"link": "Error"}
+;; @comment.warning: {"link": "WarningMsg"}
+;; @comment.todo: {"link": "Todo"}
+;; @comment.note: {"link": "DiagnosticInfo"}
+;; @diff.delta: {"fg": []}
+;; @diff.minus: {"fg": []}
 ;; Whitespace: {"link": "NonText"}
-;; SpecialKey: {"gui": "italic", "fg": []}
-;; NonText: {"fg": []}
-;; WinSeparator: {"link": "VertSplit"}
-;; VertSplit: {"bg": "NONE", "fg": []}
-;; TabLineSel: {"gui": "bold"}
+;; Directory: {"gui": "bold"}
+;; @tag.attribute: {"link": "@property"}
+;; @lsp.type.formatSpecifier: {"link": "@markup.list"}
+;; @markup.math: {"link": "Special"}
+;; @markup.environment: {"link": "PreProc"}
+;; @none: []
+;; @tag.delimiter: {"link": "Delimiter"}
+;; @tag: {"link": "Special"}
+;; @markup.list: {"link": "Special"}
+;; @markup.raw.block: {"link": "@markup.raw"}
+;; @markup.raw: {"link": "Constant"}
+;; @markup.link.url: {"link": "Constant"}
+;; @markup.link.label: {"link": "Special"}
+;; IblScope: {"fg": []}
+;; CocSearch: {"link": "Search"}
+;; CocMarkdownLink: {"gui": "underline", "fg": []}
+;; CocSelectedText: {"link": "SpellBad"}
+;; CocMenuSel: {"link": "CursorLine"}
+;; CocWarningVirtualText: {"link": "DiagnosticVirtualTextWarn"}
+;; CocErrorVirtualText: {"link": "DiagnosticVirtualTextError"}
+;; CocHintHighlight: {"link": "DiagnosticUnderlineHint"}
+;; CocInfoHighlight: {"link": "DiagnosticUnderlineInfo"}
+;; CocWarningHighlight: {"link": "DiagnosticUnderlineWarn"}
+;; CocErrorHighlight: {"link": "DiagnosticUnderlineError"}
+;; CocHintSign: {"link": "DiagnosticSignHint"}
+;; CocInfoSign: {"link": "DiagnosticSignInfo"}
+;; CocWarningSign: {"link": "DiagnosticSignWarn"}
+;; CocErrorSign: {"link": "DiagnosticSignError"}
+;; BufferVisibleIndex: {"fg": []}
+;; @keyword.directive.define: {"link": "@keyword.directive"}
+;; @keyword.directive: {"link": "PreProc"}
+;; @keyword.conditional.ternary: {"link": "@keyword.conditional"}
+;; BufferVisibleSign: {"fg": []}
+;; @keyword.exception: {"link": "Statement"}
+;; Comment: {"gui": "italic", "fg": []}
+;; ErrorMsg: {"link": "Error"}
+;; Error: {"fg": []}
+;; BufferVisible: {"fg": []}
+;; diffIndexLine: {"fg": []}
+;; gitcommitOverflow: {"link": "WarningMsg"}
+;; @punctuation.delimiter: {"link": "Delimiter"}
+;; @punctuation.bracket: {"link": "Delimiter"}
+;; markdownLinkText: {"gui": "underline", "fg": []}
+;; markdownLinkTextDelimiter: {"link": "Delimiter"}
+;; helpHyperTextEntry: {"gui": "bold", "fg": []}
+;; helpHyperTextJump: {"gui": "underline", "fg": []}
+;; helpSpecial: {"link": "Type"}
+;; helpOption: {"link": "Constant"}
+;; GitSignsAdd: {"bg": "NONE", "fg": []}
+;; GitSignsChange: {"bg": "NONE", "fg": []}
+;; GitSignsDelete: {"bg": "NONE", "fg": []}
+;; GitGutterAdd: {"link": "GitSignsAdd"}
+;; GitGutterChange: {"link": "GitSignsChange"}
+;; GitGutterDelete: {"link": "GitSignsDelete"}
+;; IblIndent: {"fg": []}
+;; @markup.quote: {"fg": []}
+;; TelescopeSelection: {"link": "CursorLine"}
+;; TelescopeSelectionCaret: {"bg": [], "fg": []}
+;; Normal: {"bg": [], "fg": []}
+;; TelescopeBorder: {"fg": []}
+;; Sneak: {"link": "Search"}
+;; SneakLabel: {"link": "WildMenu"}
+;; SneakLabelMask: {"bg": [], "fg": []}
+;; LeapMatch: {"gui": "bold,underline,nocombine"}
+;; @markup.list.checked: {"link": "@markup.list"}
+;; LeapLabelPrimary: {"bg": [], "fg": [], "gui": "bold,nocombine"}
+;; @diff.plus: {"fg": []}
+;; LeapLabelSecondary: {"bg": [], "fg": [], "gui": "bold,nocombine"}
+;; LeapLabelSelected: {"link": "IncSearch"}
+;; HopNextKey: {"gui": "bold,underline", "fg": []}
+;; HopNextKey1: {"gui": "bold,underline", "fg": []}
+;; HopNextKey2: {"fg": []}
+;; HopUnmatched: {"fg": []}
+;; BufferCurrent: {"link": "TabLineSel"}
+;; @string.escape.markdown: {"link": "SpecialKey"}
+;; @markup.link.markdown: {"gui": "underline", "fg": []}
+;; @markup.italic.markdown: {"link": "Italic"}
+;; @markup.title.markdown: {"link": "Statement"}
+;; @markup.raw.markdown: {"link": "Type"}
+;; @markup.link.url.markdown: {"link": "SpecialComment"}
+;; @markup.link.vimdoc: {"gui": "underline", "fg": []}
+;; @markup.raw.block.vimdoc: {"fg": "NONE"}
+;; @variable.parameter.vimdoc: {"link": "Type"}
+;; @label.vimdoc: {"gui": "bold", "fg": []}
+;; @lsp.type.boolean: {"link": "@boolean"}
+;; @lsp.type.builtinType: {"link": "@type.builtin"}
+;; @lsp.type.comment: {"link": "@comment"}
+;; @lsp.type.decorator: {"link": "@attribute"}
+;; @lsp.type.deriveHelper: {"link": "@attribute"}
+;; CocCodeLens: {"link": "LineNr"}
+;; @lsp.type.enumMember: {"link": "@constant"}
+;; @lsp.type.escapeSequence: {"link": "@string.escape"}
+;; NeogitNotificationError: {"link": "DiagnosticError"}
+;; @lsp.type.generic: {"link": "@variable"}
+;; @lsp.type.interface: {"link": "@type"}
+;; @lsp.type.keyword: {"link": "Statement"}
+;; @lsp.type.lifetime: {"link": "@keyword.storage"}
+;; @lsp.type.namespace: {"link": "@module"}
+;; @lsp.type.number: {"link": "@number"}
+;; @lsp.type.operator: {"link": "@operator"}
+;; @lsp.type.parameter: {"link": "@variable.parameter"}
+;; @lsp.type.property: {"link": "@property"}
+;; @lsp.type.selfKeyword: {"link": "@variable.builtin"}
+;; @lsp.type.selfTypeKeyword: {"link": "@variable.builtin"}
+;; @lsp.type.string: {"link": "@string"}
+;; @lsp.type.typeAlias: {"link": "@type.definition"}
+;; @lsp.type.unresolvedReference: {"gui": "undercurl", "sp": []}
+;; @lsp.type.variable: []
+;; @lsp.typemod.class.defaultLibrary: {"link": "@type.builtin"}
+;; @lsp.typemod.enum.defaultLibrary: {"link": "@type.builtin"}
+;; @lsp.typemod.enumMember.defaultLibrary: {"link": "@constant.builtin"}
+;; @lsp.typemod.function.defaultLibrary: {"link": "@function.builtin"}
+;; @lsp.typemod.keyword.async: {"link": "@keyword.coroutine"}
+;; @lsp.typemod.keyword.injected: {"link": "Statement"}
+;; @lsp.typemod.macro.defaultLibrary: {"link": "@function.builtin"}
+;; @lsp.typemod.method.defaultLibrary: {"link": "@function.builtin"}
+;; @lsp.typemod.operator.injected: {"link": "@operator"}
+;; @lsp.typemod.string.injected: {"link": "@string"}
+;; @lsp.typemod.struct.defaultLibrary: {"link": "@type.builtin"}
+;; @lsp.typemod.type.defaultLibrary: {"link": "@type"}
+;; @lsp.typemod.typeAlias.defaultLibrary: {"link": "@type"}
+;; @lsp.typemod.variable.callable: {"link": "@function"}
+;; @lsp.typemod.variable.defaultLibrary: {"link": "@variable.builtin"}
+;; @lsp.typemod.variable.injected: {"link": "@variable"}
+;; @lsp.typemod.variable.static: {"link": "@constant"}
+;; diffAdded: {"fg": []}
+;; diffRemoved: {"fg": []}
+;; diffChanged: {"fg": []}
+;; diffOldFile: {"gui": "italic", "fg": []}
+;; diffNewFile: {"gui": "italic", "fg": []}
+;; diffFile: {"gui": "bold", "fg": []}
+;; diffLine: {"gui": "bold", "fg": []}
+;; Bold: {"gui": "bold"}
+;; Italic: {"gui": "italic"}
+;; Underlined: {"gui": "underline"}
+;; @markup.heading: {"link": "Title"}
+;; @markup.underline: {"link": "Underlined"}
+;; @markup.strikethrough: {"gui": "strikethrough"}
+;; @markup.italic: {"link": "Italic"}
+;; @markup.strong: {"link": "Bold"}
 ;; TabLineFill: {"link": "StatusLineNC"}
-;; TabLine: {"link": "StatusLine"}
-;; DiagnosticUnderlineWarn: {"gui": "undercurl", "fg": "NONE", "sp": []}
-;; SpellRare: {"gui": "undercurl", "fg": [], "sp": []}
-;; DiagnosticVirtualTextHint: {"bg": [], "fg": []}
+;; TabLineSel: {"gui": "bold"}
+;; VertSplit: {"bg": "NONE", "fg": []}
+;; WinSeparator: {"link": "VertSplit"}
+;; NonText: {"fg": []}
+;; SpecialKey: {"gui": "italic", "fg": []}
+;; Cursor: {"bg": [], "fg": []}
+;; EndOfBuffer: {"link": "NonText"}
+;; WildMenu: {"bg": [], "fg": []}
+;; Visual: {"bg": []}
+;; Question: {"link": "MoreMsg"}
+;; Title: {"gui": "bold", "fg": []}
+;; Constant: {"gui": "italic", "fg": []}
+;; Number: {"gui": "italic", "fg": []}
+;; Boolean: {"link": "Number"}
+;; Identifier: {"fg": []}
+;; Function: {"fg": []}
+;; Statement: {"gui": "bold", "fg": []}
+;; PreProc: {"link": "Statement"}
+;; Type: {"fg": []}
+;; Special: {"gui": "bold", "fg": []}
+;; Delimiter: {"fg": []}
+;; SpecialComment: {"gui": "NONE", "fg": []}
+;; Todo: {"gui": "bold,underline"}
+;; WarningMsg: {"fg": []}
+;; LspReferenceText: {"link": "ColorColumn"}
+;; LspReferenceRead: {"link": "ColorColumn"}
+;; LspReferenceWrite: {"link": "ColorColumn"}
+;; LspCodeLens: {"link": "LineNr"}
+;; DiagnosticError: {"link": "Error"}
+;; DiagnosticWarn: {"link": "WarningMsg"}
+;; DiagnosticInfo: {"fg": []}
+;; DiagnosticHint: {"fg": []}
+;; DiagnosticOk: {"fg": []}
+;; DiagnosticDeprecated: {"link": "DiagnosticWarn"}
+;; DiagnosticUnnecessary: {"link": "DiagnosticWarn"}
+;; DiagnosticSignError: {"bg": "NONE", "fg": []}
+;; DiagnosticSignWarn: {"bg": "NONE", "fg": []}
+;; DiagnosticSignInfo: {"bg": "NONE", "fg": []}
+;; DiagnosticSignHint: {"bg": "NONE", "fg": []}
+;; DiagnosticSignOk: {"bg": "NONE", "fg": []}
+;; DiagnosticVirtualTextError: {"bg": [], "fg": []}
+;; DiagnosticVirtualTextWarn: {"bg": [], "fg": []}
 ;; DiagnosticVirtualTextInfo: {"bg": [], "fg": []}
-;; CurSearch: {"link": "IncSearch"}
+;; DiagnosticVirtualTextHint: {"bg": [], "fg": []}
+;; DiagnosticVirtualTextOk: {"bg": [], "fg": []}
+;; DiagnosticUnderlineError: {"gui": "undercurl", "fg": "NONE", "sp": []}
+;; DiagnosticUnderlineWarn: {"gui": "undercurl", "fg": "NONE", "sp": []}
 ;; DiagnosticUnderlineInfo: {"gui": "undercurl", "fg": "NONE", "sp": []}
-;; IncSearch: {"bg": [], "fg": [], "gui": "bold"}
-;; Search: {"bg": [], "fg": []}
-;; PmenuThumb: {"bg": []}
-;; PmenuSbar: {"bg": []}
-;; PmenuSel: {"bg": []}
-;; Pmenu: {"bg": []}
-;; FloatBorder: {"bg": "NONE", "fg": []}
-;; NormalFloat: {"bg": []}
-;; MoreMsg: {"gui": "bold", "fg": []}
-;; CursorLineNr: {"bg": "NONE", "fg": [], "gui": "bold"}
-;; @field: {"link": "Identifier"}
-;; @float: {"link": "Number"}
+;; DiagnosticUnderlineHint: {"gui": "undercurl", "fg": "NONE", "sp": []}
+;; DiagnosticUnderlineOk: {"gui": "undercurl", "fg": "NONE", "sp": []}
+;; @variable: {"link": "Identifier"}
+;; @variable.builtin: {"link": "Number"}
+;; @variable.parameter: {"link": "@variable"}
+;; @variable.member: {"link": "@variable"}
+;; @constant: {"gui": "bold", "fg": []}
+;; @constant.builtin: {"link": "Number"}
+;; @constant.macro: {"link": "Number"}
+;; @module: {"link": "Number"}
+;; @module.builtin: {"link": "@module"}
+;; @label: {"link": "Statement"}
+;; @string: {"link": "Constant"}
+;; @string.documentation: {"link": "@string"}
+;; @string.regexp: {"link": "Constant"}
+;; @string.escape: {"link": "Special"}
+;; @string.special: {"link": "Special"}
+;; @string.special.symbol: {"link": "Identifier"}
+;; @string.special.url: {"link": "@string.special"}
+;; @string.special.path: {"link": "@string.special"}
+;; @character: {"link": "Constant"}
+;; @character.special: {"link": "Special"}
+;; @boolean: {"link": "Number"}
+;; @number: {"link": "Number"}
+;; @number.float: {"link": "@number"}
+;; @type: {"link": "Type"}
+;; @type.builtin: {"link": "@type"}
+;; @type.definition: {"link": "@type"}
+;; @type.qualifier: {"link": "@type"}
+;; @attribute: {"link": "PreProc"}
+;; @property: {"link": "Identifier"}
 ;; @function: {"link": "Function"}
 ;; @function.builtin: {"link": "Special"}
-;; @function.call: {"link": "Function"}
-;; helpOption: {"link": "Constant"}
+;; @function.call: {"link": "@function"}
 ;; @function.macro: {"link": "PreProc"}
-;; Special: {"gui": "bold", "fg": []}
-;; Underlined: {"gui": "underline"}
-;; DiffText: {"bg": [], "fg": []}
-;; Bold: {"gui": "bold"}
-;; LineNr: {"bg": "NONE", "fg": []}
-;; Error: {"fg": []}
-;; ErrorMsg: {"link": "Error"}
-;; Comment: {"gui": "italic", "fg": []}
+;; @function.method: {"link": "@function"}
+;; @function.method.call: {"link": "@function"}
+;; @constructor: {"link": "Special"}
+;; @operator: {"link": "Statement"}
+;; @keyword.coroutine: {"link": "Statement"}
+;; @keyword.function: {"link": "Statement"}
+;; @keyword.operator: {"link": "Statement"}
+;; @keyword.import: {"link": "PreProc"}
+;; @keyword.storage: {"link": "Type"}
+;; @keyword.repeat: {"link": "Statement"}
+;; @keyword.return: {"link": "Statement"}
+;; @keyword.debug: {"link": "Special"}
 ;; Conceal: {"gui": "bold,italic", "fg": []}
-;; SignColumn: {"link": "LineNr"}
+;; @keyword.conditional: {"link": "Statement"}
 ;; lCursor: {"bg": [], "fg": []}
 ;; TermCursor: {"link": "Cursor"}
 ;; TermCursorNC: {"link": "lCursor"}
@@ -130,225 +327,54 @@
 ;; DiffAdd: {"bg": []}
 ;; DiffChange: {"bg": []}
 ;; DiffDelete: {"bg": []}
-;; Delimiter: {"fg": []}
-;; SpecialComment: {"gui": "NONE", "fg": []}
-;; Todo: {"gui": "bold,underline"}
+;; DiffText: {"bg": [], "fg": []}
+;; LineNr: {"bg": "NONE", "fg": []}
+;; SignColumn: {"link": "LineNr"}
 ;; FoldColumn: {"bg": "NONE", "fg": [], "gui": "bold"}
 ;; Folded: {"bg": [], "fg": []}
-;; LspReferenceRead: {"link": "ColorColumn"}
-;; LspReferenceWrite: {"link": "ColorColumn"}
-;; LspCodeLens: {"link": "LineNr"}
-;; DiagnosticError: {"link": "Error"}
-;; DiagnosticWarn: {"link": "WarningMsg"}
-;; DiagnosticInfo: {"fg": []}
-;; DiagnosticHint: {"fg": []}
-;; DiagnosticDeprecated: {"link": "DiagnosticWarn"}
-;; DiagnosticUnnecessary: {"link": "DiagnosticWarn"}
-;; DiagnosticSignError: {"bg": "NONE", "fg": []}
-;; DiagnosticSignWarn: {"bg": "NONE", "fg": []}
-;; DiagnosticSignInfo: {"bg": "NONE", "fg": []}
-;; DiagnosticSignHint: {"bg": "NONE", "fg": []}
-;; DiagnosticVirtualTextError: {"bg": [], "fg": []}
-;; DiagnosticVirtualTextWarn: {"bg": [], "fg": []}
+;; CursorLineNr: {"bg": "NONE", "fg": [], "gui": "bold"}
+;; MoreMsg: {"gui": "bold", "fg": []}
+;; NormalFloat: {"bg": []}
+;; FloatBorder: {"bg": "NONE", "fg": []}
+;; Pmenu: {"bg": []}
+;; PmenuSel: {"bg": []}
+;; PmenuSbar: {"bg": []}
+;; PmenuThumb: {"bg": []}
+;; Search: {"bg": [], "fg": []}
+;; IncSearch: {"bg": [], "fg": [], "gui": "bold"}
+;; MatchParen: {"link": "Search"}
+;; CurSearch: {"link": "IncSearch"}
+;; SpellBad: {"gui": "undercurl", "fg": [], "sp": []}
+;; @punctuation.special.markdown: {"link": "Special"}
+;; @lsp.type.enum: {"link": "@type"}
 ;; SpellCap: {"gui": "undercurl", "fg": [], "sp": []}
 ;; SpellLocal: {"link": "SpellCap"}
-;; DiagnosticUnderlineError: {"gui": "undercurl", "fg": "NONE", "sp": []}
+;; SpellRare: {"gui": "undercurl", "fg": [], "sp": []}
 ;; StatusLine: {"bg": [], "fg": []}
 ;; StatusLineNC: {"bg": [], "fg": []}
-;; DiagnosticUnderlineHint: {"gui": "undercurl", "fg": "NONE", "sp": []}
-;; @annotation: {"link": "PreProc"}
-;; @attribute: {"link": "PreProc"}
-;; @boolean: {"link": "Number"}
-;; @character: {"link": "Constant"}
-;; @character.special: {"link": "Special"}
-;; @comment: {"link": "Comment"}
-;; @conditional: {"link": "Statement"}
-;; @constant: {"gui": "bold", "fg": []}
-;; WildMenu: {"bg": [], "fg": []}
-;; Directory: {"gui": "bold"}
-;; Question: {"link": "MoreMsg"}
-;; Title: {"gui": "bold", "fg": []}
-;; Constant: {"gui": "italic", "fg": []}
-;; Number: {"gui": "italic", "fg": []}
-;; @include: {"link": "PreProc"}
-;; @keyword: {"link": "Statement"}
-;; @keyword.function: {"link": "Statement"}
-;; @keyword.operator: {"link": "Statement"}
-;; @keyword.return: {"link": "Statement"}
-;; @keyword.coroutine: {"link": "Statement"}
-;; @label: {"link": "Statement"}
-;; @method: {"link": "Function"}
-;; @method.call: {"link": "Function"}
-;; @namespace: {"link": "Special"}
-;; @none: []
-;; @number: {"link": "Number"}
-;; @operator: {"link": "Statement"}
-;; @parameter: {"link": "Identifier"}
-;; @parameter.reference: {"link": "@parameter"}
-;; @preproc: {"link": "PreProc"}
-;; @property: {"link": "Identifier"}
-;; @punctuation.bracket: {"link": "Delimiter"}
-;; @punctuation.delimiter: {"link": "Delimiter"}
-;; @punctuation.special: {"link": "Delimiter"}
-;; @repeat: {"link": "Statement"}
-;; @storageclass: {"link": "Type"}
-;; @string: {"link": "Constant"}
-;; @string.escape: {"link": "Special"}
-;; @string.regex: {"link": "Constant"}
-;; @string.special: {"link": "Special"}
-;; @symbol: {"link": "Identifier"}
-;; @tag: {"link": "Special"}
-;; @tag.attribute: {"link": "@property"}
-;; @tag.delimiter: {"link": "Delimiter"}
-;; @text: {"link": "@none"}
-;; @text.danger: {"link": "Error"}
-;; @text.emphasis: {"link": "Italic"}
-;; @text.environment: {"link": "PreProc"}
-;; @text.environment.name: {"link": "Type"}
-;; @text.literal: {"link": "Constant"}
-;; @text.math: {"link": "Special"}
-;; @text.note: {"link": "DiagnosticInfo"}
-;; @text.reference: {"link": "Constant"}
-;; @text.strike: {"gui": "strikethrough"}
-;; LspReferenceText: {"link": "ColorColumn"}
-;; @text.strong: {"link": "Bold"}
-;; @text.title: {"link": "Title"}
-;; @text.underline: {"link": "Underlined"}
-;; @text.uri: {"link": "Underlined"}
-;; @text.warning: {"link": "WarningMsg"}
-;; @text.todo: {"link": "Todo"}
-;; @type: {"link": "Type"}
-;; @type.builtin: {"link": "Type"}
-;; @type.definition: {"link": "Type"}
-;; @type.qualifier: {"link": "Type"}
-;; @variable: {"link": "Identifier"}
-;; @variable.builtin: {"link": "Number"}
-;; @punctuation.special.markdown: {"link": "Special"}
-;; @string.escape.markdown: {"link": "SpecialKey"}
-;; @text.reference.markdown: {"gui": "underline", "fg": []}
-;; @text.emphasis.markdown: {"link": "Italic"}
-;; @text.title.markdown: {"link": "Statement"}
-;; @text.literal.markdown: {"link": "Type"}
-;; @text.uri.markdown: {"link": "SpecialComment"}
-;; @lsp.type.boolean: {"link": "@boolean"}
-;; @lsp.type.builtinType: {"link": "@type.builtin"}
-;; @lsp.type.comment: {"link": "@comment"}
-;; @lsp.type.enum: {"link": "@type"}
-;; @lsp.type.enumMember: {"link": "@constant"}
-;; @lsp.type.escapeSequence: {"link": "@string.escape"}
-;; @lsp.type.formatSpecifier: {"link": "@punctuation.special"}
-;; @lsp.type.keyword: {"link": "@keyword"}
-;; @lsp.type.namespace: {"link": "@namespace"}
-;; @lsp.type.number: {"link": "@number"}
-;; @lsp.type.parameter: {"link": "@parameter"}
-;; @lsp.type.property: {"link": "@property"}
-;; @lsp.type.selfKeyword: {"link": "@variable.builtin"}
-;; @lsp.type.string.rust: {"link": "@string"}
-;; @lsp.type.typeAlias: {"link": "@type.definition"}
-;; @lsp.type.unresolvedReference: {"gui": "undercurl", "sp": []}
-;; @lsp.type.variable: {"link": "@variable"}
-;; @lsp.typemod.class.defaultLibrary: {"link": "@type.builtin"}
-;; @lsp.typemod.enum.defaultLibrary: {"link": "@type.builtin"}
-;; @lsp.typemod.enumMember.defaultLibrary: {"link": "@constant.builtin"}
-;; @lsp.typemod.method.defaultLibrary: {"link": "@function.builtin"}
-;; @lsp.typemod.function.defaultLibrary: {"link": "@function.builtin"}
-;; @lsp.typemod.macro.defaultLibrary: {"link": "@function.builtin"}
-;; @lsp.typemod.keyword.async: {"link": "@keyword.coroutine"}
-;; @lsp.typemod.operator.injected: {"link": "@operator"}
-;; @lsp.typemod.string.injected: {"link": "@string"}
-;; @lsp.typemod.variable.defaultLibrary: {"link": "@variable.builtin"}
-;; @lsp.typemod.variable.injected: {"link": "@variable"}
-;; diffAdded: {"fg": []}
-;; diffRemoved: {"fg": []}
-;; diffChanged: {"fg": []}
-;; diffOldFile: {"gui": "italic", "fg": []}
-;; diffNewFile: {"gui": "italic", "fg": []}
-;; diffFile: {"gui": "bold", "fg": []}
-;; diffLine: {"gui": "bold", "fg": []}
-;; diffIndexLine: {"fg": []}
-;; @text.diff.add: {"link": "diffAdded"}
-;; @text.diff.delete: {"link": "diffRemoved"}
-;; gitcommitOverflow: {"link": "WarningMsg"}
+;; TabLine: {"link": "StatusLine"}
+;; @markup.list.unchecked: {"link": "@markup.list"}
+;; @markup.link: {"link": "Constant"}
 ;; markdownUrl: {"link": "SpecialComment"}
 ;; markdownCode: {"link": "Type"}
-;; markdownLinkText: {"gui": "underline", "fg": []}
-;; markdownLinkTextDelimiter: {"link": "Delimiter"}
-;; helpHyperTextEntry: {"link": "Special"}
-;; helpHyperTextJump: {"link": "Constant"}
-;; helpSpecial: {"link": "Type"}
-;; WarningMsg: {"fg": []}
-;; GitSignsAdd: {"bg": "NONE", "fg": []}
-;; GitSignsChange: {"bg": "NONE", "fg": []}
-;; GitSignsDelete: {"bg": "NONE", "fg": []}
-;; GitGutterAdd: {"link": "GitSignsAdd"}
-;; GitGutterChange: {"link": "GitSignsChange"}
-;; GitGutterDelete: {"link": "GitSignsDelete"}
-;; IndentBlanklineChar: {"fg": []}
-;; TelescopeSelection: {"link": "CursorLine"}
-;; TelescopeSelectionCaret: {"bg": [], "fg": []}
 ;; TelescopeMatching: {"gui": "bold", "fg": []}
-;; TelescopeBorder: {"fg": []}
-;; Sneak: {"link": "Search"}
-;; SneakLabel: {"link": "WildMenu"}
-;; SneakLabelMask: {"bg": [], "fg": []}
-;; LeapMatch: {"gui": "bold,underline,nocombine"}
-;; MatchParen: {"link": "Search"}
-;; LeapLabelPrimary: {"bg": [], "fg": [], "gui": "bold,nocombine"}
-;; SpellBad: {"gui": "undercurl", "fg": [], "sp": []}
-;; LeapLabelSecondary: {"bg": [], "fg": [], "gui": "bold,nocombine"}
-;; LeapLabelSelected: {"link": "IncSearch"}
-;; HopNextKey: {"gui": "bold,underline", "fg": []}
-;; HopNextKey1: {"gui": "bold,underline", "fg": []}
-;; HopNextKey2: {"fg": []}
-;; HopUnmatched: {"fg": []}
-;; BufferCurrent: {"link": "TabLineSel"}
-;; BufferVisible: {"fg": []}
-;; BufferVisibleSign: {"fg": []}
-;; BufferVisibleIndex: {"fg": []}
-;; CocErrorSign: {"link": "DiagnosticSignError"}
-;; CocWarningSign: {"link": "DiagnosticSignWarn"}
-;; CocInfoSign: {"link": "DiagnosticSignInfo"}
-;; CocHintSign: {"link": "DiagnosticSignHint"}
-;; CocErrorHighlight: {"link": "DiagnosticUnderlineError"}
-;; CocWarningHighlight: {"link": "DiagnosticUnderlineWarn"}
-;; CocInfoHighlight: {"link": "DiagnosticUnderlineInfo"}
-;; CocHintHighlight: {"link": "DiagnosticUnderlineHint"}
-;; CocErrorVirtualText: {"link": "DiagnosticVirtualTextError"}
-;; CocWarningVitualText: {"link": "DiagnosticVirtualTextWarn"}
-;; CocMenuSel: {"link": "CursorLine"}
-;; CocSelectedText: {"link": "SpellBad"}
-;; CocCodeLens: {"link": "LineNr"}
-;; CocMarkdownLink: {"gui": "underline", "fg": []}
-;; yellow: []
-;; bright_magenta: []
-;; blue: []
-;; bright_cyan: []
-;; magenta: []
-;; bright_white: []
-;; cyan: []
-;; bright_black: []
+;; @punctuation.special: {"link": "Delimiter"}
 ;; white: []
-;; bright_red: []
+;; bright_white: []
 ;; black: []
-;; bright_green: []
+;; bright_cyan: []
 ;; red: []
-;; bright_yellow: []
+;; bright_magenta: []
 ;; green: []
 ;; bright_blue: []
- `(magit-diff-removed-highlight ((,class (:foreground "#A8334C" :background "#EBD8DA"))))
- `(magit-diff-added ((,class (:background "#CBE5B8"))))
- `(magit-diff-added-highlight ((,class (:foreground "#4F6C31" :background "#CBE5B8"))))
- `(magit-diff-base ((,class (:background "#D4DEE7"))))
- `(magit-diff-base-highlight ((,class (:foreground "#286486" :background "#D4DEE7"))))
- `(error ((,class (:foreground "#A8334C"))))
- `(magit-diff-lines-heading ((,class (:foreground "#F0EDEC" :background "#C074B2" :bold 't))))
- `(magit-diff-hunk-heading-highlight ((,class (:foreground "#2C363C" :background "#D6CDC9"))))
- `(magit-diff-hunk-heading ((,class (:foreground "#596A76" :background "#E1DCD9"))))
- `(magit-diff-whitespace-warning ((,class (:background "#94253E"))))
- `(font-lock-string-face ((,class (:foreground "#556570" :italic 't))))
- `(minibuffer-prompt ((,class (:foreground "#4F5E68" :bold 't))))
- `(ansi-color-white ((,class (:foreground "#2C363C" :background "#2C363C"))))
- `(rainbow-delimiters-depth-9-face ((,class (:foreground "#A8334C"))))
+;; yellow: []
+;; bright_yellow: []
+;; blue: []
+;; bright_green: []
+;; magenta: []
+;; bright_red: []
+;; cyan: []
+;; bright_black: []
  `(cursor ((,class (:foreground "#F0EDEC" :background "#2C363C"))))
  `(isearch ((,class (:foreground "#F0EDEC" :background "#C074B2" :bold 't))))
  `(warning ((,class (:foreground "#944927"))))
@@ -359,7 +385,7 @@
  `(ansi-color-bright-green ((,class (:foreground "#3F5A22" :background "#3F5A22"))))
  `(ansi-color-bright-cyan ((,class (:foreground "#2B747C" :background "#2B747C"))))
  `(ansi-color-bright-magenta ((,class (:foreground "#7B3B70" :background "#7B3B70"))))
- `(ansi-color-bright-yellow ((,class (:foreground "#803D1C" :background "#803D1C"))))
+ `(match ((,class (:foreground "#2C363C" :background "#DEB9D6"))))
  `(ansi-color-bright-white ((,class (:foreground "#4F5E68" :background "#4F5E68"))))
  `(ansi-color-bright-black ((,class (:foreground "#CFC1BA" :background "#CFC1BA"))))
  `(ansi-color-red ((,class (:foreground "#A8334C" :background "#A8334C"))))
@@ -368,11 +394,11 @@
  `(ansi-color-cyan ((,class (:foreground "#3B8992" :background "#3B8992"))))
  `(ansi-color-magenta ((,class (:foreground "#88507D" :background "#88507D"))))
  `(ansi-color-yellow ((,class (:foreground "#944927" :background "#944927"))))
- `(region ((,class (:background "#CBD9E3"))))
+ `(ansi-color-white ((,class (:foreground "#2C363C" :background "#2C363C"))))
  `(ansi-color-black ((,class (:foreground "#F0EDEC" :background "#F0EDEC"))))
  `(evil-ex-substitute-replacement ((,class (:foreground "#286486" :background "#D9E4EF"))))
  `(eshell-prompt ((,class (:foreground "#4F5E68" :bold 't))))
- `(default ((,class (:foreground "#2C363C" :background "#F0EDEC"))))
+ `(minibuffer-prompt ((,class (:foreground "#4F5E68" :bold 't))))
  `(comint-highlight-prompt ((,class (:foreground "#4F5E68" :bold 't))))
  `(flymake-error ((,class (:foreground "#A8334C" :background "#EFDFE0"))))
  `(flymake-warning ((,class (:foreground "#944927" :background "#EFDFDC"))))
@@ -393,17 +419,17 @@
  `(lazy-highlight ((,class (:foreground "#2C363C" :background "#DEB9D6"))))
  `(font-lock-delimiter-face ((,class (:foreground "#8E817B"))))
  `(font-lock-constant-face ((,class (:foreground "#556570" :italic 't))))
- `(highlight ((,class (:background "#CBD9E3"))))
+ `(font-lock-string-face ((,class (:foreground "#556570" :italic 't))))
  `(font-lock-function-name-face ((,class (:foreground "#6A5549"))))
  `(font-lock-function-call-face ((,class (:foreground "#2C363C"))))
  `(font-lock-comment-face ((,class (:foreground "#948985" :italic 't))))
  `(font-lock-builtin-face ((,class (:foreground "#4F5E68" :bold 't))))
  `(font-lock-variable-name-face ((,class (:foreground "#44525B"))))
  `(font-lock-variable-use-face ((,class (:foreground "#44525B"))))
- `(font-lock-keyword-face ((,class (:foreground "#2C363C" :bold 't))))
+ `(error ((,class (:foreground "#A8334C"))))
  `(font-lock-type-face ((,class (:foreground "#6A5549"))))
  `(font-lock-preprocessor-face ((,class (:foreground "#2C363C" :bold 't))))
- `(rainbow-delimiters-base-face ((,class (:foreground "#8E817B"))))
+ `(region ((,class (:background "#CBD9E3"))))
  `(rainbow-delimiters-depth-1-face ((,class (:foreground "#2C363C" :background "#F0EDEC"))))
  `(rainbow-delimiters-depth-2-face ((,class (:foreground "#286486"))))
  `(rainbow-delimiters-depth-3-face ((,class (:foreground "#88507D"))))
@@ -412,10 +438,24 @@
  `(rainbow-delimiters-depth-6-face ((,class (:foreground "#4F6C31"))))
  `(rainbow-delimiters-depth-7-face ((,class (:foreground "#4F5E68"))))
  `(rainbow-delimiters-depth-8-face ((,class (:foreground "#3B8992"))))
- `(match ((,class (:foreground "#2C363C" :background "#DEB9D6"))))
+ `(rainbow-delimiters-depth-9-face ((,class (:foreground "#A8334C"))))
  `(rainbow-delimiters-base-error-face ((,class (:foreground "#A8334C" :background "#EFDFE0"))))
  `(magit-section-highlight ((,class (:background "#E9E4E2"))))
  `(magit-diff-removed ((,class (:background "#EBD8DA"))))
+ `(magit-diff-removed-highlight ((,class (:foreground "#A8334C" :background "#EBD8DA"))))
+ `(magit-diff-added ((,class (:background "#CBE5B8"))))
+ `(magit-diff-added-highlight ((,class (:foreground "#4F6C31" :background "#CBE5B8"))))
+ `(magit-diff-base ((,class (:background "#D4DEE7"))))
+ `(magit-diff-base-highlight ((,class (:foreground "#286486" :background "#D4DEE7"))))
+ `(magit-diff-whitespace-warning ((,class (:background "#94253E"))))
+ `(magit-diff-hunk-heading ((,class (:foreground "#596A76" :background "#E1DCD9"))))
+ `(default ((,class (:foreground "#2C363C" :background "#F0EDEC"))))
+ `(magit-diff-lines-heading ((,class (:foreground "#F0EDEC" :background "#C074B2" :bold 't))))
+ `(highlight ((,class (:background "#CBD9E3"))))
+ `(magit-diff-hunk-heading-highlight ((,class (:foreground "#2C363C" :background "#D6CDC9"))))
+ `(ansi-color-bright-yellow ((,class (:foreground "#803D1C" :background "#803D1C"))))
+ `(font-lock-keyword-face ((,class (:foreground "#2C363C" :bold 't))))
+ `(rainbow-delimiters-base-face ((,class (:foreground "#8E817B"))))
 ))
 (provide-theme 'zenbones_light)
 
