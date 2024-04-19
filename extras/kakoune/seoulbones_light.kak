@@ -1,14 +1,27 @@
 # seoulbones_light theme
 
-face global module rgb:6D4C52
-face global string rgb:7C7C7C+i
+face global StatusLineValue rgb:555555,rgb:E2E2E2
+face global StatusCursor rgb:E2E2E2,rgb:555555
+face global Prompt rgb:755F74
+face global MatchingChar rgb:E2E2E2,rgb:9E779D+b
+face global BufferPadding rgb:555555,rgb:E2E2E2
+face global Error rgb:DC5284
+face global function rgb:6C6B20
+face global Whitespace rgb:555555,rgb:E2E2E2
+face global title rgb:755F74
+face global PrimarySelection default,rgb:CCCCCC
+face global StatusLine rgb:555555,rgb:C4C4C4
+face global meta rgb:6D4C52
+face global DiagnosticError rgb:DC5284
+face global link rgb:555555,rgb:E2E2E2
 face global value rgb:7C7C7C+i
 face global keyword rgb:0084A3+b
+face global module rgb:6D4C52
 face global operator rgb:6C6B20
 face global attribute rgb:BE6A84
 face global comment rgb:628562+i
 face global documentation rgb:628562+i
-face global meta rgb:6D4C52
+face global string rgb:7C7C7C+i
 face global builtin rgb:755F74
 face global header rgb:0084A3+b
 face global mono rgb:7C7C7C+i
@@ -16,7 +29,7 @@ face global block rgb:555555,rgb:E2E2E2
 face global bullet rgb:555555,rgb:E2E2E2
 face global list rgb:555555,rgb:E2E2E2
 face global Default rgb:555555,rgb:E2E2E2
-face global PrimarySelection default,rgb:CCCCCC
+face global type rgb:6D4C52
 face global SecondarySelection default,rgb:CCCCCC
 face global PrimaryCursor rgb:E2E2E2,rgb:555555
 face global SecondaryCursor rgb:E2E2E2,rgb:555555
@@ -32,17 +45,4 @@ face global Information rgb:555555,rgb:C4C4C4
 face global DiagnosticWarning rgb:C48562
 face global StatusLineMode rgb:755F74
 face global StatusLineInfo rgb:0084A3,rgb:C2DBE8
-face global StatusLineValue rgb:555555,rgb:E2E2E2
-face global StatusCursor rgb:E2E2E2,rgb:555555
-face global Prompt rgb:755F74
-face global MatchingChar rgb:E2E2E2,rgb:9E779D+b
-face global BufferPadding rgb:555555,rgb:E2E2E2
-face global function rgb:6C6B20
-face global StatusLine rgb:555555,rgb:C4C4C4
-face global DiagnosticError rgb:DC5284
-face global Whitespace rgb:555555,rgb:E2E2E2
-face global link rgb:555555,rgb:E2E2E2
-face global Error rgb:DC5284
-face global title rgb:755F74
-face global type rgb:6D4C52
 
