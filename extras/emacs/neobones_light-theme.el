@@ -7,10 +7,61 @@
 (let ((class '((class color) (min-colors 89))))
    (custom-theme-set-faces
    'neobones_light
+;; markdownCode: {"link": "Type"}
+;; markdownLinkText: {"gui": "underline", "fg": []}
+;; markdownLinkTextDelimiter: {"link": "Delimiter"}
+;; helpHyperTextEntry: {"gui": "bold", "fg": []}
+;; helpHyperTextJump: {"fg": []}
+;; WarningMsg: {"fg": []}
+;; helpSpecial: {"link": "Type"}
+;; helpOption: {"link": "helpHyperTextJump"}
+;; GitSignsAdd: {"bg": "NONE", "fg": []}
+;; GitSignsChange: {"bg": "NONE", "fg": []}
+;; GitSignsDelete: {"bg": "NONE", "fg": []}
+;; GitGutterAdd: {"link": "GitSignsAdd"}
+;; GitGutterChange: {"link": "GitSignsChange"}
+;; GitGutterDelete: {"link": "GitSignsDelete"}
+;; IblIndent: {"fg": []}
+;; IblScope: {"fg": []}
+;; TelescopeSelection: {"link": "CursorLine"}
+;; TelescopeSelectionCaret: {"bg": [], "fg": []}
+;; TelescopeMatching: {"gui": "bold", "fg": []}
+;; TelescopeBorder: {"fg": []}
+;; Sneak: {"link": "Search"}
+;; SneakLabel: {"link": "WildMenu"}
+;; SneakLabelMask: {"bg": [], "fg": []}
+;; LeapMatch: {"gui": "bold,underline,nocombine"}
+;; LeapLabelPrimary: {"bg": [], "fg": [], "gui": "bold,nocombine"}
+;; NoiceCmdlinePopupTitle: {"link": "NoiceCmdlineIcon"}
+;; NoiceCompletionItemKindDefault: {"fg": []}
+;; NoiceConfirmBorder: {"link": "NoiceCmdlineIcon"}
+;; FlashLabel: {"bg": [], "fg": []}
+;; FlashBackdrop: {"fg": []}
+;; NotifyERRORIcon: {"link": "DiagnosticError"}
+;; NotifyERRORTitle: {"link": "DiagnosticError"}
+;; NotifyWARNIcon: {"link": "DiagnosticWarn"}
+;; NotifyWARNTitle: {"link": "DiagnosticWarn"}
+;; NotifyINFOIcon: {"link": "DiagnosticInfo"}
+;; NotifyINFOTitle: {"link": "DiagnosticInfo"}
+;; NotifyDEBUGIcon: {"link": "DiagnosticHint"}
+;; NotifyDEBUGTitle: {"link": "DiagnosticHint"}
+;; NotifyTRACEIcon: {"link": "DiagnosticHint"}
+;; NotifyTRACETitle: {"link": "DiagnosticHint"}
+;; CocWarningHighlight: {"link": "DiagnosticUnderlineWarn"}
+;; CocInfoHighlight: {"link": "DiagnosticUnderlineInfo"}
+;; CocHintHighlight: {"link": "DiagnosticUnderlineHint"}
+;; CocErrorVirtualText: {"link": "DiagnosticVirtualTextError"}
+;; CocWarningVirtualText: {"link": "DiagnosticVirtualTextWarn"}
+;; CocMenuSel: {"link": "CursorLine"}
+;; CocSelectedText: {"link": "SpellBad"}
+;; CocCodeLens: {"link": "LineNr"}
+;; CocMarkdownLink: {"gui": "underline", "fg": []}
+;; CocSearch: {"link": "Search"}
+;; NeogitNotificationError: {"link": "DiagnosticError"}
 ;; NeogitNotificationWarning: {"link": "DiagnosticWarn"}
 ;; NeogitNotificationInfo: {"link": "DiagnosticInfo"}
 ;; NeogitDiffContextHighlight: {"link": "CursorLine"}
-;; Italic: {"gui": "italic"}
+;; NeogitDiffDeleteHighlight: {"link": "DiffDelete"}
 ;; NeogitDiffAddHighlight: {"link": "DiffAdd"}
 ;; NeogitHunkHeader: {"link": "LineNr"}
 ;; NeogitHunkHeaderHighlight: {"bg": [], "fg": [], "gui": "bold"}
@@ -56,131 +107,32 @@
 ;; NoiceCmdlineIconSearch: {"link": "WarningMsg"}
 ;; NoiceCmdlinePopupBorder: {"link": "NoiceCmdlineIcon"}
 ;; NoiceCmdlinePopupBorderSearch: {"link": "WarningMsg"}
-;; NoiceCmdlinePopupTitle: {"link": "NoiceCmdlineIcon"}
-;; NoiceCompletionItemKindDefault: {"fg": []}
-;; NoiceConfirmBorder: {"link": "NoiceCmdlineIcon"}
-;; FlashLabel: {"bg": [], "fg": []}
-;; FlashBackdrop: {"fg": []}
-;; NotifyERRORIcon: {"link": "DiagnosticError"}
-;; NotifyERRORTitle: {"link": "DiagnosticError"}
-;; NotifyWARNIcon: {"link": "DiagnosticWarn"}
-;; NotifyWARNTitle: {"link": "DiagnosticWarn"}
-;; NotifyINFOIcon: {"link": "DiagnosticInfo"}
-;; NotifyINFOTitle: {"link": "DiagnosticInfo"}
-;; NotifyDEBUGIcon: {"link": "DiagnosticHint"}
-;; NotifyDEBUGTitle: {"link": "DiagnosticHint"}
-;; NotifyTRACEIcon: {"link": "DiagnosticHint"}
-;; NotifyTRACETitle: {"link": "DiagnosticHint"}
-;; @punctuation.special: {"link": "Delimiter"}
-;; TelescopeMatching: {"gui": "bold", "fg": []}
-;; markdownCode: {"link": "Type"}
-;; markdownUrl: {"link": "helpHyperTextJump"}
-;; @markup.link: {"link": "Constant"}
-;; @markup.list.unchecked: {"link": "@markup.list"}
-;; Directory: {"gui": "bold"}
-;; @markup.strikethrough: {"gui": "strikethrough"}
-;; @markup.link.url.markdown: {"link": "SpecialComment"}
-;; @markup.raw.markdown: {"link": "Type"}
-;; @markup.title.markdown: {"link": "Statement"}
-;; @markup.italic.markdown: {"link": "Italic"}
-;; @lsp.type.enum: {"link": "@type"}
-;; @punctuation.special.markdown: {"link": "Special"}
-;; LeapMatch: {"gui": "bold,underline,nocombine"}
-;; SneakLabelMask: {"bg": [], "fg": []}
-;; SneakLabel: {"link": "WildMenu"}
-;; Sneak: {"link": "Search"}
-;; TelescopeBorder: {"fg": []}
-;; TelescopeSelectionCaret: {"bg": [], "fg": []}
-;; TelescopeSelection: {"link": "CursorLine"}
-;; @markup.quote: {"fg": []}
-;; @diff.delta: {"fg": []}
-;; @diff.minus: {"fg": []}
-;; @tag.attribute: {"link": "@property"}
-;; @lsp.type.formatSpecifier: {"link": "@markup.list"}
-;; @none: []
-;; @tag.delimiter: {"link": "Delimiter"}
-;; @tag: {"link": "Special"}
-;; CocSearch: {"link": "Search"}
-;; CocMarkdownLink: {"gui": "underline", "fg": []}
-;; CocSelectedText: {"link": "SpellBad"}
-;; CocMenuSel: {"link": "CursorLine"}
-;; CocWarningVirtualText: {"link": "DiagnosticVirtualTextWarn"}
-;; CocErrorVirtualText: {"link": "DiagnosticVirtualTextError"}
-;; CocHintHighlight: {"link": "DiagnosticUnderlineHint"}
-;; CocInfoHighlight: {"link": "DiagnosticUnderlineInfo"}
-;; CocWarningHighlight: {"link": "DiagnosticUnderlineWarn"}
-;; TermCursorNC: {"link": "lCursor"}
-;; TermCursor: {"link": "Cursor"}
-;; lCursor: {"bg": [], "fg": []}
-;; CocErrorHighlight: {"link": "DiagnosticUnderlineError"}
-;; Conceal: {"gui": "bold,italic", "fg": []}
-;; @keyword.debug: {"link": "Special"}
-;; @keyword.return: {"link": "Statement"}
-;; @keyword.repeat: {"link": "Statement"}
-;; CocHintSign: {"link": "DiagnosticSignHint"}
-;; diffIndexLine: {"fg": []}
-;; gitcommitOverflow: {"link": "WarningMsg"}
+;; @keyword.conditional: {"link": "Statement"}
+;; @keyword.conditional.ternary: {"link": "@keyword.conditional"}
+;; @keyword.directive: {"link": "PreProc"}
+;; @keyword.directive.define: {"link": "@keyword.directive"}
 ;; @punctuation.delimiter: {"link": "Delimiter"}
 ;; @punctuation.bracket: {"link": "Delimiter"}
-;; markdownLinkText: {"gui": "underline", "fg": []}
-;; markdownLinkTextDelimiter: {"link": "Delimiter"}
-;; helpHyperTextEntry: {"gui": "bold", "fg": []}
-;; helpHyperTextJump: {"fg": []}
-;; helpSpecial: {"link": "Type"}
-;; helpOption: {"link": "helpHyperTextJump"}
-;; GitSignsAdd: {"bg": "NONE", "fg": []}
-;; GitSignsChange: {"bg": "NONE", "fg": []}
-;; GitSignsDelete: {"bg": "NONE", "fg": []}
-;; GitGutterAdd: {"link": "GitSignsAdd"}
-;; GitGutterChange: {"link": "GitSignsChange"}
-;; GitGutterDelete: {"link": "GitSignsDelete"}
-;; IblIndent: {"fg": []}
-;; IblScope: {"fg": []}
+;; @punctuation.special: {"link": "Delimiter"}
+;; @comment: {"link": "Comment"}
+;; @comment.documentation: {"link": "@comment"}
+;; @comment.error: {"link": "Error"}
+;; @comment.warning: {"link": "WarningMsg"}
+;; @comment.todo: {"link": "Todo"}
+;; @comment.note: {"link": "DiagnosticInfo"}
+;; @markup.strong: {"link": "Bold"}
+;; @markup.italic: {"link": "Italic"}
+;; @markup.strikethrough: {"gui": "strikethrough"}
+;; @lsp.type.escapeSequence: {"link": "@string.escape"}
+;; @markup.underline: {"link": "Underlined"}
+;; @markup.heading: {"link": "Title"}
+;; @markup.quote: {"fg": []}
 ;; @markup.math: {"link": "Special"}
 ;; @markup.environment: {"link": "PreProc"}
-;; Normal: {"bg": [], "fg": []}
+;; @markup.link: {"link": "Constant"}
 ;; @markup.link.label: {"link": "Special"}
 ;; @markup.link.url: {"link": "Constant"}
 ;; @markup.raw: {"link": "Constant"}
-;; @markup.raw.block: {"link": "@markup.raw"}
-;; @markup.list: {"link": "Special"}
-;; @markup.list.checked: {"link": "@markup.list"}
-;; LeapLabelPrimary: {"bg": [], "fg": [], "gui": "bold,nocombine"}
-;; @diff.plus: {"fg": []}
-;; LeapLabelSecondary: {"bg": [], "fg": [], "gui": "bold,nocombine"}
-;; LeapLabelSelected: {"link": "IncSearch"}
-;; HopNextKey: {"gui": "bold,underline", "fg": []}
-;; HopNextKey1: {"gui": "bold,underline", "fg": []}
-;; HopNextKey2: {"fg": []}
-;; HopUnmatched: {"fg": []}
-;; BufferCurrent: {"link": "TabLineSel"}
-;; BufferVisible: {"fg": []}
-;; BufferVisibleSign: {"fg": []}
-;; BufferVisibleIndex: {"fg": []}
-;; CocErrorSign: {"link": "DiagnosticSignError"}
-;; CocWarningSign: {"link": "DiagnosticSignWarn"}
-;; CocInfoSign: {"link": "DiagnosticSignInfo"}
-;; @markup.link.vimdoc: {"gui": "underline", "fg": []}
-;; @markup.raw.block.vimdoc: {"fg": "NONE"}
-;; @variable.parameter.vimdoc: {"link": "Type"}
-;; @label.vimdoc: {"gui": "bold", "fg": []}
-;; @lsp.type.boolean: {"link": "@boolean"}
-;; @lsp.type.builtinType: {"link": "@type.builtin"}
-;; @lsp.type.comment: {"link": "@comment"}
-;; @lsp.type.decorator: {"link": "@attribute"}
-;; @lsp.type.deriveHelper: {"link": "@attribute"}
-;; CocCodeLens: {"link": "LineNr"}
-;; @lsp.type.enumMember: {"link": "@constant"}
-;; @lsp.type.escapeSequence: {"link": "@string.escape"}
-;; NeogitNotificationError: {"link": "DiagnosticError"}
-;; @lsp.type.generic: {"link": "@variable"}
-;; @lsp.type.interface: {"link": "@type"}
-;; @lsp.type.keyword: {"link": "Statement"}
-;; @lsp.type.lifetime: {"link": "@keyword.storage"}
-;; @lsp.type.namespace: {"link": "@module"}
-;; @lsp.type.number: {"link": "@number"}
-;; @lsp.type.operator: {"link": "@operator"}
-;; @lsp.type.parameter: {"link": "@variable.parameter"}
 ;; @lsp.type.property: {"link": "@property"}
 ;; @lsp.type.selfKeyword: {"link": "@variable.builtin"}
 ;; @lsp.type.selfTypeKeyword: {"link": "@variable.builtin"}
@@ -188,17 +140,17 @@
 ;; @lsp.type.typeAlias: {"link": "@type.definition"}
 ;; @lsp.type.unresolvedReference: {"gui": "undercurl", "sp": []}
 ;; @lsp.type.variable: []
-;; @lsp.typemod.class.defaultLibrary: {"link": "@type.builtin"}
-;; @lsp.typemod.enum.defaultLibrary: {"link": "@type.builtin"}
-;; @lsp.typemod.enumMember.defaultLibrary: {"link": "@constant.builtin"}
-;; @lsp.typemod.function.defaultLibrary: {"link": "@function.builtin"}
-;; @lsp.typemod.keyword.async: {"link": "@keyword.coroutine"}
-;; @lsp.typemod.keyword.injected: {"link": "Statement"}
-;; @lsp.typemod.macro.defaultLibrary: {"link": "@function.builtin"}
-;; @lsp.typemod.method.defaultLibrary: {"link": "@function.builtin"}
-;; @lsp.typemod.operator.injected: {"link": "@operator"}
-;; @lsp.typemod.string.injected: {"link": "@string"}
-;; @lsp.typemod.struct.defaultLibrary: {"link": "@type.builtin"}
+;; @tag: {"link": "Special"}
+;; @tag.attribute: {"link": "@property"}
+;; @tag.delimiter: {"link": "Delimiter"}
+;; @none: []
+;; @punctuation.special.markdown: {"link": "Special"}
+;; @string.escape.markdown: {"link": "SpecialKey"}
+;; @markup.link.markdown: {"gui": "underline", "fg": []}
+;; @markup.italic.markdown: {"link": "Italic"}
+;; @markup.title.markdown: {"link": "Statement"}
+;; @markup.raw.markdown: {"link": "Type"}
+;; @markup.link.url.markdown: {"link": "SpecialComment"}
 ;; @lsp.typemod.type.defaultLibrary: {"link": "@type"}
 ;; @lsp.typemod.typeAlias.defaultLibrary: {"link": "@type"}
 ;; @lsp.typemod.variable.callable: {"link": "@function"}
@@ -212,14 +164,48 @@
 ;; diffNewFile: {"gui": "italic", "fg": []}
 ;; diffFile: {"gui": "bold", "fg": []}
 ;; diffLine: {"gui": "bold", "fg": []}
-;; @keyword.import: {"link": "PreProc"}
-;; @comment.note: {"link": "DiagnosticInfo"}
-;; @keyword.function: {"link": "Statement"}
-;; @comment.todo: {"link": "Todo"}
-;; @comment.warning: {"link": "WarningMsg"}
-;; @comment.error: {"link": "Error"}
-;; @comment.documentation: {"link": "@comment"}
-;; @comment: {"link": "Comment"}
+;; diffIndexLine: {"fg": []}
+;; gitcommitOverflow: {"link": "WarningMsg"}
+;; markdownUrl: {"link": "helpHyperTextJump"}
+;; Underlined: {"gui": "underline"}
+;; Bold: {"gui": "bold"}
+;; Error: {"fg": []}
+;; ErrorMsg: {"link": "Error"}
+;; Comment: {"gui": "italic", "fg": []}
+;; Conceal: {"gui": "bold,italic", "fg": []}
+;; lCursor: {"bg": [], "fg": []}
+;; TermCursor: {"link": "Cursor"}
+;; TermCursorNC: {"link": "lCursor"}
+;; CursorLine: {"bg": []}
+;; CursorColumn: {"link": "CursorLine"}
+;; ColorColumn: {"bg": []}
+;; DiffAdd: {"bg": []}
+;; DiffChange: {"bg": []}
+;; DiffDelete: {"bg": []}
+;; DiffText: {"bg": [], "fg": []}
+;; LineNr: {"bg": "NONE", "fg": []}
+;; SignColumn: {"link": "LineNr"}
+;; FoldColumn: {"bg": "NONE", "fg": [], "gui": "bold"}
+;; Folded: {"bg": [], "fg": []}
+;; CursorLineNr: {"bg": "NONE", "fg": [], "gui": "bold"}
+;; MoreMsg: {"gui": "bold", "fg": []}
+;; NormalFloat: {"bg": []}
+;; FloatBorder: {"bg": "NONE", "fg": []}
+;; Pmenu: {"bg": []}
+;; PmenuSel: {"bg": []}
+;; PmenuSbar: {"bg": []}
+;; PmenuThumb: {"bg": []}
+;; Search: {"bg": [], "fg": []}
+;; IncSearch: {"bg": [], "fg": [], "gui": "bold"}
+;; MatchParen: {"link": "Search"}
+;; CurSearch: {"link": "IncSearch"}
+;; SpellBad: {"gui": "undercurl", "fg": [], "sp": []}
+;; SpellCap: {"gui": "undercurl", "fg": [], "sp": []}
+;; SpellLocal: {"link": "SpellCap"}
+;; SpellRare: {"gui": "undercurl", "fg": [], "sp": []}
+;; StatusLine: {"bg": [], "fg": []}
+;; StatusLineNC: {"bg": [], "fg": []}
+;; TabLine: {"link": "StatusLine"}
 ;; TabLineFill: {"link": "StatusLineNC"}
 ;; TabLineSel: {"gui": "bold"}
 ;; VertSplit: {"bg": "NONE", "fg": []}
@@ -227,9 +213,49 @@
 ;; NonText: {"fg": []}
 ;; SpecialKey: {"gui": "italic", "fg": []}
 ;; Cursor: {"bg": [], "fg": []}
+;; Visual: {"bg": []}
+;; LeapLabelSecondary: {"bg": [], "fg": [], "gui": "bold,nocombine"}
+;; LeapLabelSelected: {"link": "IncSearch"}
+;; HopNextKey: {"gui": "bold,underline", "fg": []}
+;; HopNextKey1: {"gui": "bold,underline", "fg": []}
+;; HopNextKey2: {"fg": []}
+;; Italic: {"gui": "italic"}
+;; @keyword.storage: {"link": "Type"}
+;; @keyword.repeat: {"link": "Statement"}
+;; @keyword.return: {"link": "Statement"}
+;; @keyword.debug: {"link": "Special"}
+;; @keyword.exception: {"link": "Statement"}
+;; @lsp.type.enumMember: {"link": "@constant"}
+;; @lsp.type.formatSpecifier: {"link": "@markup.list"}
+;; @lsp.type.generic: {"link": "@variable"}
+;; @lsp.type.interface: {"link": "@type"}
+;; @lsp.type.keyword: {"link": "Statement"}
+;; @lsp.type.lifetime: {"link": "@keyword.storage"}
+;; @lsp.type.namespace: {"link": "@module"}
+;; @lsp.type.number: {"link": "@number"}
+;; @lsp.type.operator: {"link": "@operator"}
+;; @lsp.type.parameter: {"link": "@variable.parameter"}
+;; @lsp.typemod.keyword.injected: {"link": "Statement"}
+;; @lsp.typemod.macro.defaultLibrary: {"link": "@function.builtin"}
+;; @lsp.typemod.method.defaultLibrary: {"link": "@function.builtin"}
+;; @lsp.typemod.operator.injected: {"link": "@operator"}
+;; @lsp.typemod.string.injected: {"link": "@string"}
+;; @lsp.typemod.struct.defaultLibrary: {"link": "@type.builtin"}
+;; @markup.link.vimdoc: {"gui": "underline", "fg": []}
+;; @markup.raw.block.vimdoc: {"fg": "NONE"}
+;; @variable.parameter.vimdoc: {"link": "Type"}
+;; @label.vimdoc: {"gui": "bold", "fg": []}
+;; @lsp.type.boolean: {"link": "@boolean"}
+;; @lsp.type.builtinType: {"link": "@type.builtin"}
+;; @lsp.type.comment: {"link": "@comment"}
+;; Normal: {"bg": [], "fg": []}
+;; @lsp.type.decorator: {"link": "@attribute"}
+;; @lsp.type.deriveHelper: {"link": "@attribute"}
+;; @lsp.type.enum: {"link": "@type"}
+;; Whitespace: {"link": "NonText"}
 ;; EndOfBuffer: {"link": "NonText"}
 ;; WildMenu: {"bg": [], "fg": []}
-;; Visual: {"bg": []}
+;; Directory: {"gui": "bold"}
 ;; Question: {"link": "MoreMsg"}
 ;; Title: {"gui": "bold", "fg": []}
 ;; Constant: {"gui": "italic", "fg": []}
@@ -244,7 +270,7 @@
 ;; Delimiter: {"fg": []}
 ;; SpecialComment: {"gui": "NONE", "fg": []}
 ;; Todo: {"gui": "bold,underline"}
-;; DiagnosticUnderlineInfo: {"gui": "undercurl", "fg": "NONE", "sp": []}
+;; @markup.list.checked: {"link": "@markup.list"}
 ;; LspReferenceText: {"link": "ColorColumn"}
 ;; LspReferenceRead: {"link": "ColorColumn"}
 ;; LspReferenceWrite: {"link": "ColorColumn"}
@@ -268,7 +294,7 @@
 ;; DiagnosticVirtualTextOk: {"bg": [], "fg": []}
 ;; DiagnosticUnderlineError: {"gui": "undercurl", "fg": "NONE", "sp": []}
 ;; DiagnosticUnderlineWarn: {"gui": "undercurl", "fg": "NONE", "sp": []}
-;; WarningMsg: {"fg": []}
+;; DiagnosticUnderlineInfo: {"gui": "undercurl", "fg": "NONE", "sp": []}
 ;; DiagnosticUnderlineHint: {"gui": "undercurl", "fg": "NONE", "sp": []}
 ;; DiagnosticUnderlineOk: {"gui": "undercurl", "fg": "NONE", "sp": []}
 ;; @variable: {"link": "Identifier"}
@@ -309,79 +335,117 @@
 ;; @constructor: {"link": "Special"}
 ;; @operator: {"link": "Statement"}
 ;; @keyword.coroutine: {"link": "Statement"}
-;; Underlined: {"gui": "underline"}
+;; @keyword.function: {"link": "Statement"}
 ;; @keyword.operator: {"link": "Statement"}
-;; Bold: {"gui": "bold"}
-;; @keyword.storage: {"link": "Type"}
-;; Error: {"fg": []}
-;; ErrorMsg: {"link": "Error"}
-;; Comment: {"gui": "italic", "fg": []}
-;; @keyword.exception: {"link": "Statement"}
-;; @keyword.conditional: {"link": "Statement"}
-;; @keyword.conditional.ternary: {"link": "@keyword.conditional"}
-;; @keyword.directive: {"link": "PreProc"}
-;; @keyword.directive.define: {"link": "@keyword.directive"}
-;; CursorLine: {"bg": []}
-;; CursorColumn: {"link": "CursorLine"}
-;; ColorColumn: {"bg": []}
-;; DiffAdd: {"bg": []}
-;; DiffChange: {"bg": []}
-;; DiffDelete: {"bg": []}
-;; DiffText: {"bg": [], "fg": []}
-;; LineNr: {"bg": "NONE", "fg": []}
-;; SignColumn: {"link": "LineNr"}
-;; FoldColumn: {"bg": "NONE", "fg": [], "gui": "bold"}
-;; Folded: {"bg": [], "fg": []}
-;; CursorLineNr: {"bg": "NONE", "fg": [], "gui": "bold"}
-;; MoreMsg: {"gui": "bold", "fg": []}
-;; NormalFloat: {"bg": []}
-;; FloatBorder: {"bg": "NONE", "fg": []}
-;; Pmenu: {"bg": []}
-;; PmenuSel: {"bg": []}
-;; PmenuSbar: {"bg": []}
-;; PmenuThumb: {"bg": []}
-;; Search: {"bg": [], "fg": []}
-;; IncSearch: {"bg": [], "fg": [], "gui": "bold"}
-;; MatchParen: {"link": "Search"}
-;; CurSearch: {"link": "IncSearch"}
-;; SpellBad: {"gui": "undercurl", "fg": [], "sp": []}
-;; @string.escape.markdown: {"link": "SpecialKey"}
-;; @markup.link.markdown: {"gui": "underline", "fg": []}
-;; SpellCap: {"gui": "undercurl", "fg": [], "sp": []}
-;; SpellLocal: {"link": "SpellCap"}
-;; SpellRare: {"gui": "undercurl", "fg": [], "sp": []}
-;; StatusLine: {"bg": [], "fg": []}
-;; StatusLineNC: {"bg": [], "fg": []}
-;; TabLine: {"link": "StatusLine"}
-;; Whitespace: {"link": "NonText"}
-;; @markup.strong: {"link": "Bold"}
-;; @markup.italic: {"link": "Italic"}
-;; @markup.underline: {"link": "Underlined"}
-;; @markup.heading: {"link": "Title"}
-;; NeogitDiffDeleteHighlight: {"link": "DiffDelete"}
-;; white: []
+;; @keyword.import: {"link": "PreProc"}
+;; @lsp.typemod.keyword.async: {"link": "@keyword.coroutine"}
+;; @lsp.typemod.function.defaultLibrary: {"link": "@function.builtin"}
+;; @lsp.typemod.enumMember.defaultLibrary: {"link": "@constant.builtin"}
+;; @lsp.typemod.enum.defaultLibrary: {"link": "@type.builtin"}
+;; @lsp.typemod.class.defaultLibrary: {"link": "@type.builtin"}
+;; @diff.delta: {"fg": []}
+;; @diff.minus: {"fg": []}
+;; @diff.plus: {"fg": []}
+;; @markup.list.unchecked: {"link": "@markup.list"}
+;; @markup.list: {"link": "Special"}
+;; @markup.raw.block: {"link": "@markup.raw"}
+;; CocErrorHighlight: {"link": "DiagnosticUnderlineError"}
+;; CocHintSign: {"link": "DiagnosticSignHint"}
+;; CocInfoSign: {"link": "DiagnosticSignInfo"}
+;; CocWarningSign: {"link": "DiagnosticSignWarn"}
+;; CocErrorSign: {"link": "DiagnosticSignError"}
+;; BufferVisibleIndex: {"fg": []}
+;; BufferVisibleSign: {"fg": []}
+;; BufferVisible: {"fg": []}
+;; BufferCurrent: {"link": "TabLineSel"}
+;; HopUnmatched: {"fg": []}
 ;; bright_white: []
-;; black: []
-;; bright_cyan: []
 ;; red: []
-;; bright_magenta: []
+;; bright_cyan: []
 ;; green: []
-;; bright_blue: []
+;; bright_magenta: []
 ;; yellow: []
-;; bright_yellow: []
+;; bright_blue: []
 ;; blue: []
-;; bright_green: []
+;; bright_yellow: []
 ;; magenta: []
-;; bright_red: []
+;; bright_green: []
 ;; cyan: []
+;; bright_red: []
+;; white: []
 ;; bright_black: []
+;; black: []
+ `(font-lock-function-call-face ((,class (:foreground "#202E18"))))
+ `(font-lock-comment-face ((,class (:foreground "#878D88" :italic 't))))
+ `(font-lock-builtin-face ((,class (:foreground "#415934" :bold 't))))
+ `(font-lock-variable-name-face ((,class (:foreground "#364A2A"))))
+ `(font-lock-variable-use-face ((,class (:foreground "#364A2A"))))
+ `(font-lock-keyword-face ((,class (:foreground "#202E18" :bold 't))))
+ `(font-lock-type-face ((,class (:foreground "#495C4C"))))
+ `(font-lock-preprocessor-face ((,class (:foreground "#202E18" :bold 't))))
+ `(rainbow-delimiters-base-face ((,class (:foreground "#7B837C"))))
+ `(rainbow-delimiters-depth-1-face ((,class (:foreground "#202E18" :background "#E5EDE6"))))
+ `(rainbow-delimiters-depth-2-face ((,class (:foreground "#286486"))))
+ `(rainbow-delimiters-depth-3-face ((,class (:foreground "#88507D"))))
+ `(rainbow-delimiters-depth-4-face ((,class (:foreground "#202E18"))))
+ `(rainbow-delimiters-depth-5-face ((,class (:foreground "#944927"))))
+ `(rainbow-delimiters-depth-6-face ((,class (:foreground "#567A30"))))
+ `(rainbow-delimiters-depth-7-face ((,class (:foreground "#415934"))))
+ `(magit-diff-hunk-heading-highlight ((,class (:foreground "#202E18" :background "#C2CFC4"))))
+ `(highlight ((,class (:background "#ADE48C"))))
+ `(link ((,class (:foreground "#1D5573" :underline 't))))
+ `(default ((,class (:foreground "#202E18" :background "#E5EDE6"))))
+ `(cursor ((,class (:foreground "#E5EDE6" :background "#202E18"))))
+ `(isearch ((,class (:foreground "#E5EDE6" :background "#BD72AF" :bold 't))))
+ `(warning ((,class (:foreground "#944927"))))
+ `(mode-line ((,class (:foreground "#202E18" :background "#C2CFC4"))))
+ `(mode-line-inactive ((,class (:foreground "#4B663C" :background "#D0DED2"))))
+ `(ansi-color-bright-red ((,class (:foreground "#94253E" :background "#94253E"))))
+ `(ansi-color-bright-blue ((,class (:foreground "#1D5573" :background "#1D5573"))))
+ `(ansi-color-bright-green ((,class (:foreground "#3F5A22" :background "#3F5A22"))))
+ `(ansi-color-bright-cyan ((,class (:foreground "#2B747C" :background "#2B747C"))))
+ `(ansi-color-bright-magenta ((,class (:foreground "#7B3B70" :background "#7B3B70"))))
+ `(ansi-color-bright-yellow ((,class (:foreground "#803D1C" :background "#803D1C"))))
+ `(ansi-color-bright-white ((,class (:foreground "#415934" :background "#415934"))))
+ `(ansi-color-bright-black ((,class (:foreground "#B3C6B6" :background "#B3C6B6"))))
+ `(ansi-color-red ((,class (:foreground "#A8334C" :background "#A8334C"))))
+ `(ansi-color-blue ((,class (:foreground "#286486" :background "#286486"))))
+ `(ansi-color-green ((,class (:foreground "#567A30" :background "#567A30"))))
+ `(ansi-color-cyan ((,class (:foreground "#3B8992" :background "#3B8992"))))
+ `(ansi-color-magenta ((,class (:foreground "#88507D" :background "#88507D"))))
+ `(ansi-color-yellow ((,class (:foreground "#944927" :background "#944927"))))
+ `(ansi-color-white ((,class (:foreground "#202E18" :background "#202E18"))))
+ `(ansi-color-black ((,class (:foreground "#E5EDE6" :background "#E5EDE6"))))
  `(evil-ex-substitute-replacement ((,class (:foreground "#286486" :background "#D5E1ED"))))
+ `(success ((,class (:foreground "#567A30"))))
+ `(git-gutter:added ((,class (:foreground "#567A30"))))
+ `(git-gutter:deleted ((,class (:foreground "#A8334C"))))
+ `(git-gutter:modified ((,class (:foreground "#286486"))))
  `(eshell-prompt ((,class (:foreground "#415934" :bold 't))))
- `(minibuffer-prompt ((,class (:foreground "#415934" :bold 't))))
+ `(match ((,class (:foreground "#202E18" :background "#DCB5D4"))))
  `(comint-highlight-prompt ((,class (:foreground "#415934" :bold 't))))
+ `(flycheck-error ((,class (:foreground "#A8334C" :background "#EDDBDD"))))
+ `(flycheck-warning ((,class (:foreground "#944927" :background "#EEDCD8"))))
+ `(flycheck-info ((,class (:foreground "#286486" :background "#D5E1ED"))))
  `(flymake-error ((,class (:foreground "#A8334C" :background "#EDDBDD"))))
  `(flymake-warning ((,class (:foreground "#944927" :background "#EEDCD8"))))
  `(flymake-note ((,class (:foreground "#286486" :background "#D5E1ED"))))
+ `(magit-diff-lines-heading ((,class (:foreground "#E5EDE6" :background "#BD72AF" :bold 't))))
+ `(magit-diff-hunk-heading ((,class (:foreground "#4B663C" :background "#D0DED2"))))
+ `(magit-diff-whitespace-warning ((,class (:background "#94253E"))))
+ `(magit-diff-base-highlight ((,class (:foreground "#286486" :background "#D1DBE5"))))
+ `(magit-diff-base ((,class (:background "#D1DBE5"))))
+ `(magit-diff-added-highlight ((,class (:foreground "#567A30" :background "#C8E2B5"))))
+ `(magit-diff-added ((,class (:background "#C8E2B5"))))
+ `(magit-diff-removed-highlight ((,class (:foreground "#A8334C" :background "#EAD5D7"))))
+ `(magit-diff-removed ((,class (:background "#EAD5D7"))))
+ `(magit-section-highlight ((,class (:background "#DAE5DB"))))
+ `(rainbow-delimiters-base-error-face ((,class (:foreground "#A8334C" :background "#EDDBDD"))))
+ `(rainbow-delimiters-depth-9-face ((,class (:foreground "#A8334C"))))
+ `(rainbow-delimiters-depth-8-face ((,class (:foreground "#3B8992"))))
+ `(error ((,class (:foreground "#A8334C"))))
+ `(region ((,class (:background "#ADE48C"))))
+ `(minibuffer-prompt ((,class (:foreground "#415934" :bold 't))))
  `(orderless-match-face-0 ((,class (:foreground "#E5EDE6" :background "#BD72AF" :bold 't))))
  `(orderless-match-face-1 ((,class (:foreground "#202E18" :background "#DCB5D4"))))
  `(orderless-match-face-2 ((,class (:foreground "#88507D" :background "#EDDAE9"))))
@@ -400,62 +464,6 @@
  `(font-lock-constant-face ((,class (:foreground "#476038" :italic 't))))
  `(font-lock-string-face ((,class (:foreground "#476038" :italic 't))))
  `(font-lock-function-name-face ((,class (:foreground "#495C4C"))))
- `(font-lock-function-call-face ((,class (:foreground "#202E18"))))
- `(font-lock-comment-face ((,class (:foreground "#878D88" :italic 't))))
- `(font-lock-builtin-face ((,class (:foreground "#415934" :bold 't))))
- `(font-lock-variable-name-face ((,class (:foreground "#364A2A"))))
- `(font-lock-variable-use-face ((,class (:foreground "#364A2A"))))
- `(font-lock-keyword-face ((,class (:foreground "#202E18" :bold 't))))
- `(font-lock-type-face ((,class (:foreground "#495C4C"))))
- `(font-lock-preprocessor-face ((,class (:foreground "#202E18" :bold 't))))
- `(rainbow-delimiters-base-face ((,class (:foreground "#7B837C"))))
- `(rainbow-delimiters-depth-1-face ((,class (:foreground "#202E18" :background "#E5EDE6"))))
- `(rainbow-delimiters-depth-2-face ((,class (:foreground "#286486"))))
- `(match ((,class (:foreground "#202E18" :background "#DCB5D4"))))
- `(magit-diff-removed-highlight ((,class (:foreground "#A8334C" :background "#EAD5D7"))))
- `(magit-diff-base ((,class (:background "#D1DBE5"))))
- `(rainbow-delimiters-depth-3-face ((,class (:foreground "#88507D"))))
- `(rainbow-delimiters-depth-4-face ((,class (:foreground "#202E18"))))
- `(rainbow-delimiters-depth-5-face ((,class (:foreground "#944927"))))
- `(rainbow-delimiters-depth-6-face ((,class (:foreground "#567A30"))))
- `(rainbow-delimiters-depth-7-face ((,class (:foreground "#415934"))))
- `(rainbow-delimiters-depth-8-face ((,class (:foreground "#3B8992"))))
- `(rainbow-delimiters-depth-9-face ((,class (:foreground "#A8334C"))))
- `(rainbow-delimiters-base-error-face ((,class (:foreground "#A8334C" :background "#EDDBDD"))))
- `(magit-section-highlight ((,class (:background "#DAE5DB"))))
- `(magit-diff-removed ((,class (:background "#EAD5D7"))))
- `(error ((,class (:foreground "#A8334C"))))
- `(magit-diff-added ((,class (:background "#C8E2B5"))))
- `(magit-diff-added-highlight ((,class (:foreground "#567A30" :background "#C8E2B5"))))
- `(region ((,class (:background "#ADE48C"))))
- `(magit-diff-base-highlight ((,class (:foreground "#286486" :background "#D1DBE5"))))
- `(magit-diff-whitespace-warning ((,class (:background "#94253E"))))
- `(magit-diff-hunk-heading ((,class (:foreground "#4B663C" :background "#D0DED2"))))
- `(magit-diff-hunk-heading-highlight ((,class (:foreground "#202E18" :background "#C2CFC4"))))
- `(magit-diff-lines-heading ((,class (:foreground "#E5EDE6" :background "#BD72AF" :bold 't))))
- `(default ((,class (:foreground "#202E18" :background "#E5EDE6"))))
- `(ansi-color-blue ((,class (:foreground "#286486" :background "#286486"))))
- `(cursor ((,class (:foreground "#E5EDE6" :background "#202E18"))))
- `(isearch ((,class (:foreground "#E5EDE6" :background "#BD72AF" :bold 't))))
- `(warning ((,class (:foreground "#944927"))))
- `(mode-line ((,class (:foreground "#202E18" :background "#C2CFC4"))))
- `(mode-line-inactive ((,class (:foreground "#4B663C" :background "#D0DED2"))))
- `(ansi-color-bright-red ((,class (:foreground "#94253E" :background "#94253E"))))
- `(ansi-color-bright-blue ((,class (:foreground "#1D5573" :background "#1D5573"))))
- `(ansi-color-bright-green ((,class (:foreground "#3F5A22" :background "#3F5A22"))))
- `(ansi-color-bright-cyan ((,class (:foreground "#2B747C" :background "#2B747C"))))
- `(ansi-color-bright-magenta ((,class (:foreground "#7B3B70" :background "#7B3B70"))))
- `(ansi-color-bright-yellow ((,class (:foreground "#803D1C" :background "#803D1C"))))
- `(ansi-color-bright-white ((,class (:foreground "#415934" :background "#415934"))))
- `(ansi-color-bright-black ((,class (:foreground "#B3C6B6" :background "#B3C6B6"))))
- `(ansi-color-red ((,class (:foreground "#A8334C" :background "#A8334C"))))
- `(highlight ((,class (:background "#ADE48C"))))
- `(ansi-color-green ((,class (:foreground "#567A30" :background "#567A30"))))
- `(ansi-color-cyan ((,class (:foreground "#3B8992" :background "#3B8992"))))
- `(ansi-color-magenta ((,class (:foreground "#88507D" :background "#88507D"))))
- `(ansi-color-yellow ((,class (:foreground "#944927" :background "#944927"))))
- `(ansi-color-white ((,class (:foreground "#202E18" :background "#202E18"))))
- `(ansi-color-black ((,class (:foreground "#E5EDE6" :background "#E5EDE6"))))
 ))
 (provide-theme 'neobones_light)
 

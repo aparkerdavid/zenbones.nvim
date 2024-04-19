@@ -44,9 +44,20 @@ local face_mappings = {
    ["ansi-color-black"] = {fg = term.black, bg = term.black},
    ["evil-ex-substitute-replacement"] = specs.DiagnosticVirtualTextInfo,
    ["error"] = specs.Error,
+   ["success"] = {fg = term.green},
+   ["link"] = {fg = term.bright_blue, gui = "underline"},
+   ["git-gutter:added"] = {fg = term.green},
+   ["git-gutter:deleted"] = {fg = term.red},
+   ["git-gutter:modified"] = {fg = term.blue},
+   ["smerge-base"] = DiffChange,
+   ["smerge-upper"] = DiffDelete,
+   ["smerge-lower"] = DiffAdd,
    ["eshell-prompt"] = specs.Special,
    ["minibuffer-prompt"] = specs.Special,
    ["comint-highlight-prompt"] = specs.Special,
+   ["flycheck-error"] = specs.DiagnosticVirtualTextError,
+   ["flycheck-warning"] = specs.DiagnosticVirtualTextWarn,
+   ["flycheck-info"] = specs.DiagnosticVirtualTextInfo,
    ["flymake-error"] = specs.DiagnosticVirtualTextError,
    ["flymake-warning"] = specs.DiagnosticVirtualTextWarn,
    ["flymake-note"] = specs.DiagnosticVirtualTextInfo,
@@ -155,6 +166,11 @@ local function create_emacs_theme(name)
 
          if v.gui and string.find(v.gui, "bold") then
             face:append(":bold")
+            face:append("'t")
+         end
+
+         if v.gui and string.find(v.gui, "underline") then
+            face:append(":underline")
             face:append("'t")
          end
 
