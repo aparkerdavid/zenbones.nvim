@@ -76,7 +76,7 @@ local face_mappings = {
    ["show-paren-mismatch"] = {bg = term.red, fg = term.black},
    ["lazy-highlight"] = specs.Search,
    ["font-lock-delimiter-face"] = specs.Delimiter,
-   ["font-lock-constant-face"] = specs.Constant,
+   ["font-lock-constant-face"] = specs.Special,
    ["font-lock-string-face"] = specs.Constant,
    ["font-lock-function-name-face"] = specs.Type,
    ["font-lock-function-call-face"] = specs.Function,
