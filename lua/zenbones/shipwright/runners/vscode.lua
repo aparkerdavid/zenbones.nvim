@@ -23,7 +23,7 @@ local function to_table(colorscheme)
 		["colors"] = {
 			-- Base colors: https://code.visualstudio.com/api/references/theme-color#base-colors
 			["focusBorder"] = specs.DiagnosticHint.fg, -- Overall border color for focused elements. This color is only used if not overridden by a component.
-			["foreground"] = specs.Normal.fg, -- Overall foreground color. This color is only used if not overridden by a component.
+			["foreground"] = specs.Normal.fg,        -- Overall foreground color. This color is only used if not overridden by a component.
 			["disabledForeground"] = specs.Normal.fg .. "80", -- Overall foreground for disabled elements. This color is only used if not overridden by a component.
 			["widget.shadow"] = specs.StatusLine.bg, -- Shadow color of widgets such as Find/Replace inside the editor.
 			["selection.background"] = specs.Visual.bg, -- Background color of text selections in the workbench (for input fields or text areas, does not apply to selections within the editor and the terminal).
@@ -37,8 +37,9 @@ local function to_table(colorscheme)
 			["window.inactiveBorder"] = specs.Normal.fg, -- Border color for the inactive (unfocused) windows.
 
 			-- Activity Bar: https://code.visualstudio.com/api/references/theme-color#activity-bar
-			["activityBar.foreground"] = specs.StatusLine.fg,
-			["activityBar.background"] = specs.StatusLine.bg,
+			["activityBar.foreground"] = specs.StatusLineNC.fg,
+			["activityBar.background"] = specs.StatusLineNC.bg,
+			["activityBar.border"] = specs.StatusLine.bg,
 			["activityBarBadge.background"] = specs.DiagnosticHint.fg,
 			["activityBarBadge.foreground"] = specs.StatusLineNC.bg,
 
@@ -62,13 +63,14 @@ local function to_table(colorscheme)
 			["tab.inactiveForeground"] = specs.StatusLine.fg .. "a0",
 			["tab.inactiveBackground"] = specs.StatusLine.bg,
 			["tab.border"] = specs.StatusLineNC.bg,
+			["editorGroup.border"] = specs.StatusLine.bg,
 
 			-- Panel colors: https://code.visualstudio.com/api/references/theme-color#panel-colors
-			["panel.background"] = specs.Normal.bg, -- Panel background color.
-			["panel.border"] = specs.VertSplit.fg .. "a0", -- Panel border color to separate the panel from the editor.
+			["panel.background"] = specs.Normal.bg,                 -- Panel background color.
+			["panel.border"] = specs.StatusLine.bg,                 -- Panel border color to separate the panel from the editor.
 			-- ["panel.dropBorder"] = , -- Drag and drop feedback color for the panel titles. Panels are shown below the editor area and contain views like output and integrated terminal.
 			["panelTitle.activeBorder"] = specs.VertSplit.fg .. "a0", -- Border color for the active panel title.
-			["panelTitle.activeForeground"] = specs.Normal.fg, -- Title color for the active panel.
+			["panelTitle.activeForeground"] = specs.Normal.fg,      -- Title color for the active panel.
 			["panelTitle.inactiveForeground"] = specs.StatusLine.fg .. "a0", -- Title color for the inactive panel.
 			-- ["panelInput.border"] = , -- Input box border for inputs in the panel.
 			-- ["panelSection.border"] = , -- Panel section border color used when multiple views are stacked horizontally in the panel. Panels are shown below the editor area and contain views like output and integrated terminal.
@@ -95,7 +97,7 @@ local function to_table(colorscheme)
 			["editorIndentGuide.activeBackground"] = specs.VertSplit.fg .. "a0",
 			["editorIndentGuide.background"] = specs.VertSplit.fg .. "50",
 			["editorLineNumber.activeForeground"] = specs.CursorLineNr.fg, -- Color of editor line numbers.
-			["editorLineNumber.foreground"] = specs.LineNr.fg, -- Color of the active editor line number.
+			["editorLineNumber.foreground"] = specs.LineNr.fg,    -- Color of the active editor line number.
 			["editorRuler.foreground"] = specs.VertSplit.fg .. "a0",
 			-- Find colors depend on the current find string in the Find/Replace dialog.
 			["editor.findMatchBackground"] = specs.CurSearch.bg, -- Color of the current search match.
@@ -156,6 +158,8 @@ local function to_table(colorscheme)
 			-- ["diffEditorGutter.removedLineBackground"] = specs., -- Background color for the margin where lines got removed.
 			-- ["diffEditorOverview.insertedForeground"] = specs., -- Diff overview ruler foreground for inserted content.
 			-- ["diffEditorOverview.removedForeground"] = specs., -- Diff overview ruler foreground for removed content.
+			["multiDiffEditor.headerBackground"] = specs.StatusLineNC.bg,
+			["multiDiffEditor.border"] = specs.StatusLine.bg,
 
 			-- Editor widget colors: https://code.visualstudio.com/api/references/theme-color#editor-widget-colors
 			["editorWidget.foreground"] = specs.StatusLineNC.fg, -- Foreground color of editor widgets, such as find/replace.
@@ -194,8 +198,8 @@ local function to_table(colorscheme)
 			-- ["editorMarkerNavigationInfo.headerBackground"] = specs., -- Editor marker navigation widget info heading background.
 
 			-- Input control: https://code.visualstudio.com/api/references/theme-color#input-control
-			["input.background"] = specs.Normal.bg, -- Input box background.
-			["input.foreground"] = specs.Normal.fg, -- Input box foreground.
+			["input.background"] = specs.Normal.bg,             -- Input box background.
+			["input.foreground"] = specs.Normal.fg,             -- Input box foreground.
 			["input.placeholderForeground"] = specs.Comment.fg, -- Input box foreground color for placeholder text.
 			["inputOption.activeBorder"] = specs.DiagnosticHint.fg, -- Border color of activated options in input fields.
 			["inputValidation.errorBorder"] = specs.DiagnosticError.fg, -- Input validation border color for error severity.
@@ -203,8 +207,8 @@ local function to_table(colorscheme)
 			["inputValidation.warningBorder"] = specs.DiagnosticWarn.fg, -- Input validation border color for warning severity.
 
 			-- Side Bar: https://code.visualstudio.com/api/references/theme-color#side-bar
-			["sideBar.background"] = specs.StatusLineNC.bg, -- Side Bar background color.
-			["sideBar.foreground"] = specs.StatusLineNC.fg, -- Side Bar foreground color. The Side Bar is the container for views like Explorer and Search.
+			["sideBar.background"] = specs.StatusLineNC.bg,   -- Side Bar background color.
+			["sideBar.foreground"] = specs.StatusLineNC.fg,   -- Side Bar foreground color. The Side Bar is the container for views like Explorer and Search.
 			["sideBarSectionHeader.background"] = specs.StatusLine.bg, -- Side Bar section header background color.
 			["sideBarSectionHeader.foreground"] = specs.StatusLine.fg, -- Side Bar section header foreground color.
 
@@ -249,8 +253,8 @@ local function to_table(colorscheme)
 			-- ["list.focusHighlightForeground"] = , -- List/Tree foreground color of the match highlights on actively focused items when searching inside the list/tree.
 			-- ["list.focusOutline"] = , -- List/Tree outline color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
 			-- ["list.focusAndSelectionOutline"] = , -- List/Tree outline color for the focused item when the list/tree is active and selected. An active list/tree has keyboard focus, an inactive does not.
-			["list.highlightForeground"] = specs.DiagnosticHint.fg, -- List/Tree foreground color of the match highlights when searching inside the list/tree.
-			["list.hoverBackground"] = specs.PmenuSel.bg .. "50", -- List/Tree background when hovering over items using the mouse.
+			["list.highlightForeground"] = specs.DiagnosticHint.fg,  -- List/Tree foreground color of the match highlights when searching inside the list/tree.
+			["list.hoverBackground"] = specs.PmenuSel.bg .. "50",    -- List/Tree background when hovering over items using the mouse.
 			-- ["list.hoverForeground"] = , -- List/Tree foreground when hovering over items using the mouse.
 			["list.inactiveSelectionBackground"] = specs.PmenuSel.bg .. "a0", -- List/Tree background color for the selected item when the list/tree is inactive.
 			-- ["list.inactiveSelectionForeground"] = , -- List/Tree foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
@@ -275,7 +279,7 @@ local function to_table(colorscheme)
 			-- ["textBlockQuote.border"] = , -- Border color for block quotes in text.
 			-- ["textCodeBlock.background"] = , -- Background color for code blocks in text.
 			["textLink.activeForeground"] = specs.DiagnosticHint.fg .. "d0", -- Foreground color for links in text when clicked on and on mouse hover.
-			["textLink.foreground"] = specs.DiagnosticHint.fg, -- Foreground color for links in text.
+			["textLink.foreground"] = specs.DiagnosticHint.fg,      -- Foreground color for links in text.
 			-- ["textPreformat.foreground"] = , -- Foreground color for preformatted text segments.
 			-- ["textSeparator.foreground"] = , -- Color for text separators.
 
@@ -288,8 +292,8 @@ local function to_table(colorscheme)
 			["notificationCenterHeader.foreground"] = specs.StatusLineNC.fg, -- Notification Center header foreground color.
 			["notificationCenterHeader.background"] = specs.StatusLineNC.bg, -- Notification Center header background color.
 			-- ["notificationToast.border"] = , -- Notification toast border color.
-			["notifications.foreground"] = specs.Normal.fg, -- Notification foreground color.
-			["notifications.background"] = specs.Normal.bg, -- Notification background color.
+			["notifications.foreground"] = specs.Normal.fg,           -- Notification foreground color.
+			["notifications.background"] = specs.Normal.bg,           -- Notification background color.
 			-- ["notifications.border"] = , -- Notification border color separating from other notifications in the Notification Center.
 			["notificationLink.foreground"] = specs.DiagnosticHint.fg, -- Notification links foreground color.
 			["notificationsErrorIcon.foreground"] = specs.DiagnosticError.fg, -- The color used for the notification error icon.
@@ -321,19 +325,20 @@ local function to_table(colorscheme)
 			-- -- ["quickInputList.focusBackground"] = "#cadeb9", -- todo
 			-- ["sideBar.background"] = "#f2f2f2", -- todo
 			-- ["sideBarSectionHeader.background"] = "#ede8ef", -- todo
-			-- -- ["titleBar.activeBackground"] = "#c4b7d7", -- todo
+			["titleBar.activeBackground"] = specs.StatusLineNC.bg, -- todo
+			["titleBar.border"] = specs.StatusLine.bg,    -- todo
 			-- -- ["walkThrough.embeddedEditorBackground"] = "#00000014", -- todo
-			-- -- ["welcomePage.tileBackground"] = "#f0f0f7", -- todo
+			-- -- ["welcomePage.tileBackground"] = "#f0f0f7", -- tod
 
 			-- Scrollbar control: https://code.visualstudio.com/api/references/theme-color#scrollbar-control
-			["scrollbar.shadow"] = specs.TabLine.bg, -- Scrollbar slider shadow to indicate that the view is scrolled.
-			["scrollbarSlider.activeBackground"] = specs.PmenuSbar.bg, -- Scrollbar slider background color when clicked on.
-			["scrollbarSlider.background"] = specs.Pmenu.bg, -- Scrollbar slider background color.
-			["scrollbarSlider.hoverBackground"] = specs.PmenuSel.bg, -- Scrollbar slider background color when hovering.
+			["scrollbar.shadow"] = specs.TabLine.bg .. "a0",          -- Scrollbar slider shadow to indicate that the view is scrolled.
+			["scrollbarSlider.activeBackground"] = specs.PmenuSbar.bg .. "a0", -- Scrollbar slider background color when clicked on.
+			["scrollbarSlider.background"] = specs.Pmenu.bg .. "a0",  -- Scrollbar slider background color.
+			["scrollbarSlider.hoverBackground"] = specs.PmenuSel.bg .. "a0", -- Scrollbar slider background color when hovering.
 
 			-- Integrated Terminal colors: https://code.visualstudio.com/api/references/theme-color#integrated-terminal-colors
-			["terminal.ansiBlack"] = term.black, -- 'Black' ANSI color in the terminal.
-			["terminal.ansiBlue"] = term.blue, -- 'Blue' ANSI color in the terminal.
+			["terminal.ansiBlack"] = term.black,         -- 'Black' ANSI color in the terminal.
+			["terminal.ansiBlue"] = term.blue,           -- 'Blue' ANSI color in the terminal.
 			["terminal.ansiBrightBlack"] = term.bright_black, -- 'BrightBlack' ANSI color in the terminal.
 			["terminal.ansiBrightBlue"] = term.bright_blue, -- 'BrightBlue' ANSI color in the terminal.
 			["terminal.ansiBrightCyan"] = term.bright_cyan, -- 'BrightCyan' ANSI color in the terminal.
@@ -342,12 +347,12 @@ local function to_table(colorscheme)
 			["terminal.ansiBrightRed"] = term.bright_red, -- 'BrightRed' ANSI color in the terminal.
 			["terminal.ansiBrightWhite"] = term.bright_white, -- 'BrightWhite' ANSI color in the terminal.
 			["terminal.ansiBrightYellow"] = term.bright_yellow, -- 'BrightYellow' ANSI color in the terminal.
-			["terminal.ansiCyan"] = term.cyan, -- 'Cyan' ANSI color in the terminal.
-			["terminal.ansiGreen"] = term.green, -- 'Green' ANSI color in the terminal.
-			["terminal.ansiMagenta"] = term.magenta, -- 'Magenta' ANSI color in the terminal.
-			["terminal.ansiRed"] = term.red, -- 'Red' ANSI color in the terminal.
-			["terminal.ansiWhite"] = term.white, -- 'White' ANSI color in the terminal.
-			["terminal.ansiYellow"] = term.yellow, -- 'Yellow' ANSI color in the terminal.
+			["terminal.ansiCyan"] = term.cyan,           -- 'Cyan' ANSI color in the terminal.
+			["terminal.ansiGreen"] = term.green,         -- 'Green' ANSI color in the terminal.
+			["terminal.ansiMagenta"] = term.magenta,     -- 'Magenta' ANSI color in the terminal.
+			["terminal.ansiRed"] = term.red,             -- 'Red' ANSI color in the terminal.
+			["terminal.ansiWhite"] = term.white,         -- 'White' ANSI color in the terminal.
+			["terminal.ansiYellow"] = term.yellow,       -- 'Yellow' ANSI color in the terminal.
 			["terminalCursor.background"] = specs.TermCursor.fg, -- The background color of the terminal cursor. Allows customizing the color of a character overlapped by a block cursor.
 			["terminalCursor.foreground"] = specs.TermCursor.bg, -- The foreground color of the terminal cursor.
 
@@ -358,12 +363,12 @@ local function to_table(colorscheme)
 			-- ["editorBracketMatch.border"] = , -- Color for matching brackets boxes.
 
 			-- Bracket pair colorization:
-			["editorBracketHighlight.foreground1"] = term.blue, -- Foreground color of brackets (1). Requires enabling bracket pair colorization.
-			["editorBracketHighlight.foreground2"] = term.green, -- Foreground color of brackets (2). Requires enabling bracket pair colorization.
-			["editorBracketHighlight.foreground3"] = term.magenta, -- Foreground color of brackets (3). Requires enabling bracket pair colorization.
-			["editorBracketHighlight.foreground4"] = term.blue, -- Foreground color of brackets (4). Requires enabling bracket pair colorization.
-			["editorBracketHighlight.foreground5"] = term.green, -- Foreground color of brackets (5). Requires enabling bracket pair colorization.
-			["editorBracketHighlight.foreground6"] = term.magenta, -- Foreground color of brackets (6). Requires enabling bracket pair colorization.
+			["editorBracketHighlight.foreground1"] = term.blue,        -- Foreground color of brackets (1). Requires enabling bracket pair colorization.
+			["editorBracketHighlight.foreground2"] = term.green,       -- Foreground color of brackets (2). Requires enabling bracket pair colorization.
+			["editorBracketHighlight.foreground3"] = term.magenta,     -- Foreground color of brackets (3). Requires enabling bracket pair colorization.
+			["editorBracketHighlight.foreground4"] = term.blue,        -- Foreground color of brackets (4). Requires enabling bracket pair colorization.
+			["editorBracketHighlight.foreground5"] = term.green,       -- Foreground color of brackets (5). Requires enabling bracket pair colorization.
+			["editorBracketHighlight.foreground6"] = term.magenta,     -- Foreground color of brackets (6). Requires enabling bracket pair colorization.
 			["editorBracketHighlight.unexpectedBracket.foreground"] = term.red, -- Foreground color of unexpected brackets.
 
 			-- term.black
