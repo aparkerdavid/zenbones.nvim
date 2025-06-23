@@ -182,7 +182,7 @@ local function create_emacs_theme(name)
          spec_str = spec_str .. face:print() .. "\n"
       end
 
-      template = helpers.apply_template(start_template, { n = name }) .. spec_str .. helpers.apply_template(end_template, { n = name })
+      template = helpers.apply_template(start_template, { n = name:gsub("_", "-") }) .. spec_str .. helpers.apply_template(end_template, { n = name:gsub("_", "-") })
 
       return { template }
    end
@@ -190,6 +190,7 @@ end
 
 ---@diagnostic disable: undefined-global
 -- selene: allow(undefined_variable)
-run({ specs, term }, create_emacs_theme(name), { overwrite, string.format("extras/emacs/%s-theme.el", name) })
+
+run({ specs, term }, create_emacs_theme(name), { overwrite, string.format("extras/emacs/%s-theme.el", name:gsub("_", "-")) })
 -- selene: deny(undefined_variable)
 ---@diagnostic enable: undefined-global
