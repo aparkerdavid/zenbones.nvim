@@ -80,6 +80,14 @@
         "description": "A zenbones variant inspired by Zenburn."
     },
     {
+        "name": "blacbox",
+        "background": "dark",
+        "exclude": [
+            "vim"
+        ],
+        "description": "a toned-down gruvbox with pure black background"
+    },
+    {
         "name": "zenwritten",
         "description": "A zenbones variant with zero hue and saturation."
     },
