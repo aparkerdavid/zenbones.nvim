@@ -19,6 +19,7 @@ return lush.extends({ base_specs }).with(function()
     -- DiffAdd { base_specs.DiffAdd },
     -- DiffChange { base_specs.DiffChange },
     -- DiffDelete { base_specs.DiffDelete },
+    CursorLine { bg = p.bg.li(10) },
     Type { base_specs.Type, fg = blue_fg },
     Constant { base_specs.Type, fg = blue_fg },
     String { base_specs.String, fg = string_fg },
@@ -26,5 +27,7 @@ return lush.extends({ base_specs }).with(function()
     Identifier { base_specs.Identifier, fg = cool_fg },
     Special { base_specs.Special, fg = cool_fg },
     Comment { base_specs.Comment, fg = comment_fg },
+    DiffAdd { bg = p.sky.saturation(50).lightness(p.bg.l + 8) },
+    GitSignsAdd { fg = p.sky },
   }
 end)
