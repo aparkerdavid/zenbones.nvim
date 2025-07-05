@@ -24,7 +24,10 @@ local face_mappings = {
    match = specs.Search,
    isearch = specs.CurSearch,
    warning = specs.WarningMsg,
+   ["completions-common-part"] = specs.Search,
+   ["corfu-current"] = specs.Visual,
    ["mode-line"] = specs.StatusLine,
+   ["header-line"] = specs.StatusLineNC,
    ["mode-line-inactive"] = specs.StatusLineNC,
    ["ansi-color-bright-red"] = {fg = term.bright_red, bg = term.bright_red},
    ["ansi-color-bright-blue"] = {fg = term.bright_blue, bg = term.bright_blue},
@@ -34,6 +37,57 @@ local face_mappings = {
    ["ansi-color-bright-yellow"] = {fg = term.bright_yellow, bg = term.bright_yellow},
    ["ansi-color-bright-white"] = {fg = term.bright_white, bg = term.bright_white},
    ["ansi-color-bright-black"] = {fg = term.bright_black, bg = term.bright_black},
+
+   ["eshell-ls-backup"] = {fg = term.green},
+   ["eshell-ls-archive"] = {fg = term.bright_blue},
+   ["eshell-ls-clutter"] = {fg = term.cyan},
+   ["eshell-ls-missing"] = {fg = term.red},
+   ["eshell-ls-product"] = {fg = term.bright_yellow},
+   ["eshell-ls-special"] = {fg = term.yellow},
+   ["eshell-ls-symlink"] = {fg = term.bright_cyan},
+   ["eshell-ls-readonly"] = {fg = term.bright_red},
+   ["eshell-ls-directory"] = {fg = term.blue},
+   ["eshell-ls-executable"] = {fg = term.bright_green},
+   ["eshell-ls-unreadable"] = {fg = term.magenta},
+
+   ["nerd-icons-red"] = { fg = term.red },
+   ["nerd-icons-blue"] = { fg = term.blue },
+   ["nerd-icons-cyan"] = { fg = term.cyan },
+   ["nerd-icons-dred"] = { fg = term.red },
+   ["nerd-icons-lred"] = { fg = term.red },
+   ["nerd-icons-pink"] = { fg = term.magenta },
+   ["nerd-icons-dblue"] = { fg = term.bright_blue },
+   ["nerd-icons-dcyan"] = { fg = term.bright_cyan },
+   ["nerd-icons-dpink"] = { fg = term.magenta },
+   ["nerd-icons-green"] = { fg = term.green },
+   ["nerd-icons-lblue"] = { fg = term.blue },
+   ["nerd-icons-lcyan"] = { fg = term.cyan },
+   ["nerd-icons-lpink"] = { fg = term.magenta },
+   ["nerd-icons-dgreen"] = { fg = term.bright_green },
+   ["nerd-icons-lgreen"] = { fg = term.green },
+   ["nerd-icons-maroon"] = { fg = term.magenta },
+   ["nerd-icons-orange"] = { fg = term.yellow },
+   ["nerd-icons-purple"] = { fg = term.magenta },
+   ["nerd-icons-silver"] = { fg = term.white },
+   ["nerd-icons-yellow"] = { fg = term.yellow },
+   ["nerd-icons-dmaroon"] = { fg = term.magenta },
+   ["nerd-icons-dorange"] = { fg = term.yellow },
+   ["nerd-icons-dpurple"] = { fg = term.magenta },
+   ["nerd-icons-dsilver"] = { fg = term.bright_white },
+   ["nerd-icons-dyellow"] = { fg = term.bright_yellow },
+   ["nerd-icons-lmaroon"] = { fg = term.magenta },
+   ["nerd-icons-lorange"] = { fg = term.yellow },
+   ["nerd-icons-lpurple"] = { fg = term.magenta },
+   ["nerd-icons-lsilver"] = { fg = term.white },
+   ["nerd-icons-lyellow"] = { fg = term.yellow },
+   ["nerd-icons-red-alt"] = { fg = term.red },
+   ["nerd-icons-blue-alt"] = { fg = term.blue },
+   ["nerd-icons-cyan-alt"] = { fg = term.cyan },
+   ["nerd-icons-purple-alt"] = { fg = term.magenta },
+
+   ["sh-heredoc"] = specs.String,
+   ["sh-quoted-exec"] = specs.Normal,
+
    ["ansi-color-red"] = {fg = term.red, bg = term.red},
    ["ansi-color-blue"] = {fg = term.blue, bg = term.blue},
    ["ansi-color-green"] = {fg = term.green, bg = term.green},
@@ -88,26 +142,26 @@ local face_mappings = {
    ["font-lock-type-face"] = specs.Type,
    ["font-lock-preprocessor-face"] = specs.PreProc,
    ["rainbow-delimiters-base-face"] = specs.Delimiter,
-   ["rainbow-delimiters-depth-1-face"] = {fg = specs.Comment.fg}, 
-   ["rainbow-delimiters-depth-2-face"] = {fg = term.blue},
-   ["rainbow-delimiters-depth-3-face"] = {fg = term.bright_magenta},
-   ["rainbow-delimiters-depth-4-face"] = {fg = term.bright_cyan},
-   ["rainbow-delimiters-depth-5-face"] = {fg = term.yellow},
-   ["rainbow-delimiters-depth-8-face"] = {fg = term.cyan},
-   ["rainbow-delimiters-depth-7-face"] = {fg = term.red},
-   ["rainbow-delimiters-depth-9-face"] = {fg = term.magenta},
-   ["rainbow-delimiters-depth-6-face"] = {fg = term.green},
+   ["rainbow-delimiters-depth-1-face"] = {fg = specs.LineNr.fg.mix(specs.Normal.fg, 50)},
+   ["rainbow-delimiters-depth-2-face"] = {fg = term.bright_magenta},
+   ["rainbow-delimiters-depth-3-face"] = {fg = term.blue},
+   ["rainbow-delimiters-depth-4-face"] = {fg = term.yellow},
+   ["rainbow-delimiters-depth-5-face"] = {fg = term.red},
+   ["rainbow-delimiters-depth-6-face"] = {fg = term.cyan},
+   ["rainbow-delimiters-depth-7-face"] = {fg = term.magenta},
+   ["rainbow-delimiters-depth-8-face"] = {fg = term.green},
+   ["rainbow-delimiters-depth-9-face"] = {fg = term.bright_red},
    ["rainbow-delimiters-base-error-face"] = specs.DiagnosticVirtualTextError,
    ["magit-section-highlight"] = specs.CursorLine,
-   ["diff-hl-delete"] = { fg = specs.DiffDelete.bg, bg = specs.DiffDelete.bg },
-   ["diff-hl-insert"] = { fg = specs.DiffAdd.bg, bg = specs.DiffAdd.bg },
-   ["diff-hl-change"] = { fg = specs.DiffChange.bg, bg = specs.DiffChange.bg },
+   ["diff-hl-delete"] = { fg = specs.DiffDelete.bg.mix(specs.GitSignsDelete.fg, 50), bg = specs.DiffDelete.bg.mix(specs.GitSignsDelete.fg, 50) },
+   ["diff-hl-insert"] = { fg = specs.DiffAdd.bg.mix(specs.GitSignsAdd.fg, 50), bg = specs.DiffAdd.bg.mix(specs.GitSignsAdd.fg, 50) },
+   ["diff-hl-change"] = { fg = specs.DiffChange.bg.mix(specs.GitSignsChange.fg, 50), bg = specs.DiffChange.bg.mix(specs.GitSignsChange.fg, 50) },
    ["magit-diff-removed"] = specs.DiffDelete,
-   ["magit-diff-removed-highlight"] = {bg = specs.DiffDelete.bg, fg = term.red},
+   ["magit-diff-removed-highlight"] = {bg = specs.DiffDelete.bg, fg = specs.GitSignsDelete.fg},
    ["magit-diff-added"] = specs.DiffAdd,
-   ["magit-diff-added-highlight"] = {bg = specs.DiffAdd.bg, fg = term.green},
+   ["magit-diff-added-highlight"] = {bg = specs.DiffAdd.bg, fg = specs.GitSignsAdd.fg},
    ["magit-diff-base"] = specs.DiffChange,
-   ["magit-diff-base-highlight"] = {bg = specs.DiffChange.bg, fg = term.blue},
+   ["magit-diff-base-highlight"] = {bg = specs.DiffChange.bg, fg = specs.GitSignsChange.fg},
    ["magit-diff-whitespace-warning"] = {bg = term.bright_red},
    ["magit-diff-hunk-heading"] = specs.StatusLineNC,
    ["magit-diff-hunk-heading-highlight"] = specs.StatusLine,
@@ -134,7 +188,7 @@ local function create_face(name)
    return face
 end
 
-local function create_emacs_theme(name) 
+local function create_emacs_theme(name)
    return function(colorscheme)
       local specs, term = unpack(colorscheme)
 	  local appearance = "light"
@@ -143,7 +197,7 @@ local function create_emacs_theme(name)
 	  end
 
       spec_str = ""
-      
+
       for k, v in pairs(specs) do
          spec_str = spec_str .. ";; "
          spec_str = spec_str .. k
